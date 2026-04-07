@@ -1,0 +1,38 @@
+# 系统默认参数配置
+
+# 工作记忆容量（4±1 组块）
+working_memory:
+  capacity: 4
+  rehearsal_interval: 2.0  # 复述间隔（秒）
+  decay_rate: 0.1  # 衰减率
+
+# 长时记忆配置
+long_term_memory:
+  consolidation_interval: 3600  # 巩固间隔（秒）
+  forgetting_curve:
+    initial_strength: 1.0
+    decay_constant: 0.05
+  # 持久化配置
+  persistence:
+    storage_path: "./data/memory/"  # 存储路径
+    auto_save: true  # 是否自动保存
+    save_interval: 300  # 自动保存间隔（秒）
+    format: "json"  # 存储格式：json 或 pickle
+    load_on_start: true  # 启动时是否加载
+
+# 感知系统配置
+perception:
+  saliency_threshold: 0.7
+  attention_span: 5.0  # 注意持续时间（秒）
+
+# 元认知与情感配置
+metacognition:
+  emotion_threshold: 0.5
+  curiosity_baseline: 0.3
+  confidence_threshold: 0.7
+
+# 系统配置
+system:
+  max_cycle_time: 0.1  # 最大认知循环时间（秒）
+  sleep_trigger_interval: 18000  # 睡眠触发间隔（秒）
+  log_level: "INFO"

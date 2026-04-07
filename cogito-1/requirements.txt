@@ -1,0 +1,26 @@
+# 核心依赖
+numpy==1.26.0
+pandas==2.1.0
+torch==2.1.0
+torchvision==0.16.0
+
+# 数据处理
+h5py==3.9.0
+Pillow==10.0.0
+
+# 图形处理
+networkx==3.1
+matplotlib==3.8.0
+
+# 配置管理
+pyyaml==6.0.1
+
+# 日志管理
+loguru==0.7.2
+
+# 测试
+pytest==7.4.0
+
+# 性能评估
+memory-profiler==0.61.0
+psutil==5.9.5

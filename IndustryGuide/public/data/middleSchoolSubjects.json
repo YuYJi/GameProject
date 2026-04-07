@@ -1,0 +1,19 @@
+[
+  { "id": "ms1", "name": "数学", "relatedMajors": ["u1", "u2", "u3", "u4", "u5", "u6", "u7", "u44", "u45", "u46"], "relatedIndustries": ["i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i29", "i30", "i43", "i44", "i45", "i48"] },
+  { "id": "ms2", "name": "物理", "relatedMajors": ["u1", "u2", "u8", "u9", "u10", "u44"], "relatedIndustries": ["i1", "i2", "i9", "i10", "i11", "i43"] },
+  { "id": "ms3", "name": "化学", "relatedMajors": ["u3", "u11", "u12", "u13", "u14", "u43"], "relatedIndustries": ["i3", "i12", "i13", "i14", "i15", "i42"] },
+  { "id": "ms4", "name": "生物", "relatedMajors": ["u4", "u12", "u15", "u16", "u17", "u41", "u43"], "relatedIndustries": ["i4", "i13", "i16", "i17", "i18", "i40", "i42"] },
+  { "id": "ms5", "name": "语文", "relatedMajors": ["u18", "u19", "u20", "u21", "u22", "u40", "u47"], "relatedIndustries": ["i19", "i20", "i21", "i22", "i23", "i46"] },
+  { "id": "ms6", "name": "英语", "relatedMajors": ["u18", "u19", "u23", "u24", "u25", "u46", "u48"], "relatedIndustries": ["i19", "i20", "i24", "i25", "i26", "i45", "i47", "i48"] },
+  { "id": "ms7", "name": "历史", "relatedMajors": ["u20", "u26", "u27", "u28"], "relatedIndustries": ["i21", "i27", "i28", "i29"] },
+  { "id": "ms8", "name": "地理", "relatedMajors": ["u26", "u29", "u30", "u14", "u45"], "relatedIndustries": ["i27", "i29", "i30", "i15", "i44"] },
+  { "id": "ms9", "name": "政治", "relatedMajors": ["u20", "u27", "u28", "u22"], "relatedIndustries": ["i21", "i27", "i28", "i23"] },
+  { "id": "ms10", "name": "信息技术", "relatedMajors": ["u1", "u2", "u7", "u31", "u32", "u42"], "relatedIndustries": ["i1", "i2", "i5", "i8", "i31", "i32", "i41"] },
+  { "id": "ms11", "name": "美术", "relatedMajors": ["u21", "u22", "u33", "u34", "u47"], "relatedIndustries": ["i19", "i28", "i33", "i34", "i46"] },
+  { "id": "ms12", "name": "音乐", "relatedMajors": ["u18", "u33", "u35"], "relatedIndustries": ["i19", "i33", "i35"] },
+  { "id": "ms13", "name": "体育与健康", "relatedMajors": ["u17", "u36", "u37", "u48"], "relatedIndustries": ["i4", "i18", "i36", "i37", "i47"] },
+  { "id": "ms14", "name": "通用技术", "relatedMajors": ["u2", "u13", "u31", "u38", "u39"], "relatedIndustries": ["i7", "i11", "i31", "i38", "i39"] },
+  { "id": "ms15", "name": "心理健康与生活", "relatedMajors": ["u40", "u41"], "relatedIndustries": ["i40"] },
+  { "id": "ms16", "name": "劳动与职业体验", "relatedMajors": ["u42", "u46"], "relatedIndustries": ["i41"] },
+  { "id": "ms17", "name": "综合科学", "relatedMajors": ["u43", "u44"], "relatedIndustries": ["i42", "i43"] }
+]

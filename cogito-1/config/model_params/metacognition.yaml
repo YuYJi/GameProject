@@ -1,0 +1,27 @@
+# 元认知系统超参数
+
+# 情感引擎配置
+emotion_engine:
+  valence_range: [-1.0, 1.0]
+  arousal_range: [0.0, 1.0]
+  update_rate: 0.1
+  memory_decay: 0.05
+
+# 置信度评估配置
+confidence:
+  calculation_method: "bayesian"
+  prior_confidence: 0.5
+  evidence_weight: 0.7
+
+# 策略选择器配置
+strategy_selector:
+  strategies: ["exploration", "exploitation", "maintenance"]
+  exploration_threshold: 0.3
+  exploitation_threshold: 0.7
+
+# 好奇心配置
+curiosity:
+  prediction_error_weight: 0.8
+  novelty_weight: 0.2
+  baseline: 0.3
+  max_value: 1.0

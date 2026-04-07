@@ -1,0 +1,26 @@
+# 工作记忆系统超参数
+
+# 缓冲区配置
+buffer:
+  capacity: 4
+  chunk_size: 256
+  decay_rate: 0.1
+  refresh_threshold: 0.3
+
+# 操作器配置
+operator:
+  max_operations: 10
+  comparison_threshold: 0.8
+  simulation_depth: 3
+
+# 复述机制配置
+rehearsal:
+  interval: 2.0
+  max_rehearsal_count: 5
+  rehearsal_strength: 0.8
+
+# 长时记忆接口配置
+interface_ltm:
+  retrieval_threshold: 0.6
+  consolidation_threshold: 0.7
+  max_retrieval_items: 5

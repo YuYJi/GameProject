@@ -1,0 +1,25 @@
+# 感知系统超参数
+
+# 编码器配置
+encoder:
+  image_encoder: "resnet50"
+  text_encoder: "bert-base-uncased"
+  audio_encoder: "wav2vec2-base"
+  embedding_dim: 512
+
+# 显著性检测配置
+saliency:
+  model: "deepgaze"
+  window_size: 10
+  threshold: 0.7
+
+# 注意力控制器配置
+attention_controller:
+  top_down_weight: 0.6
+  bottom_up_weight: 0.4
+  attention_duration: 5.0
+
+# 注意焦点配置
+focus:
+  max_focus_items: 3
+  focus_shift_threshold: 0.5

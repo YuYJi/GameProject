@@ -1,0 +1,34 @@
+# 长时记忆系统超参数
+
+# 语义记忆配置
+semantic:
+  graph_store: "networkx"
+  embedding_dim: 512
+  connection_threshold: 0.5
+  max_neighbors: 10
+
+# 情景记忆配置
+episodic:
+  event_log_size: 10000
+  reconstruction_depth: 5
+  indexer:
+    time_bucket_size: 3600
+    location_bucket_size: 100
+    emotion_bucket_size: 5
+
+# 内隐记忆配置
+procedural:
+  skill_library_size: 1000
+  automatization_threshold: 0.9
+  skill_update_rate: 0.1
+
+# 记忆巩固配置
+consolidation:
+  sleep_duration: 3600
+  forgetting_curve:
+    initial_strength: 1.0
+    decay_constant: 0.05
+    minimum_strength: 0.01
+  interference:
+    detection_threshold: 0.7
+    resolution_strategy: "competition"

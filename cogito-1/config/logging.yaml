@@ -1,0 +1,45 @@
+# 日志配置
+
+version: 1
+formatters:
+  standard:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  detailed:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(lineno)d - %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: standard
+    stream: ext://sys.stdout
+  file:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: detailed
+    filename: data/logs/cogito.log
+    mode: a
+loggers:
+  cogito:
+    level: INFO
+    handlers: [console, file]
+    propagate: no
+  cogito.perception:
+    level: DEBUG
+    handlers: [file]
+    propagate: no
+  cogito.working_memory:
+    level: DEBUG
+    handlers: [file]
+    propagate: no
+  cogito.long_term_memory:
+    level: DEBUG
+    handlers: [file]
+    propagate: no
+  cogito.metacognition:
+    level: DEBUG
+    handlers: [file]
+    propagate: no
+root:
+  level: WARNING
+  handlers: [console]
+  propagate: yes
