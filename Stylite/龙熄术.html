@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>像素火球术 + 龙熄术 - 2D RPG 技能演示</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Press Start 2P', monospace;
+        }
+        .game-wrapper {
+            background: #2d2d44;
+            padding: 20px 20px 24px;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), inset 0 0 0 2px #4a4a6a;
+            border-bottom: 6px solid #1a1a2e;
+        }
+        canvas {
+            display: block;
+            width: 800px;
+            height: 600px;
+            border-radius: 8px;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            background: #2d5a27;
+            cursor: crosshair;
+            box-shadow: inset 0 0 0 2px #4a4a6a;
+        }
+        .ui-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            padding: 0 8px;
+            color: #c8d0e0;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 0 #0a0a1a;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .ui-bar .info {
+            display: flex;
+            gap: 18px;
+            background: #1e1e32;
+            padding: 6px 16px;
+            border-radius: 30px;
+            border-bottom: 3px solid #0a0a1a;
+            flex-wrap: wrap;
+        }
+        .ui-bar .info span {
+            color: #f0e68c;
+        }
+        .ui-bar .info .label {
+            color: #8899bb;
+        }
+        .ui-bar .controls {
+            background: #1e1e32;
+            padding: 6px 16px;
+            border-radius: 30px;
+            border-bottom: 3px solid #0a0a1a;
+            font-size: 8px;
+            color: #8899bb;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .ui-bar .controls kbd {
+            background: #2a2a44;
+            color: #f0e68c;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 8px;
+            border-bottom: 2px solid #0a0a1a;
+        }
+        .skill-status {
+            color: #4ade80;
+        }
+        .skill-status.cooldown {
+            color: #f87171;
+        }
+        @media (max-width: 860px) {
+            canvas {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 800/600;
+            }
+            .game-wrapper {
+                padding: 12px;
+                margin: 10px;
+                width: 95vw;
+            }
+            .ui-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .ui-bar .info,
+            .ui-bar .controls {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="ui-bar">
+            <div class="info">
+                <div><span class="label">🔥 火球</span> <span id="fireballStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">🐉 龙息</span> <span id="breathStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">👾 敌人</span> <span id="enemyCount">0</span></div>
+                <div><span class="label">⚔️ 击杀</span> <span id="killCount">0</span></div>
+            </div>
+            <div class="controls">
+                <kbd>W A S D</kbd> 移动 ·
+                <kbd>左键</kbd> 火球 ·
+                <kbd>按住右键</kbd> 龙熄
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  像素风格 火球术 + 龙熄术 技能演示
+        //  技术：Canvas 2D + 像素风格渲染
+        //  新增：龙熄术 – 持续喷火，可转向，持续灼烧伤害
+        // ============================================================
+
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = false;
+
+        // ---- DOM 引用 ----
+        const fireballStatusEl = document.getElementById('fireballStatus');
+        const breathStatusEl = document.getElementById('breathStatus');
+        const enemyCountEl = document.getElementById('enemyCount');
+        const killCountEl = document.getElementById('killCount');
+
+        // ============================================================
+        //  常量 & 配置
+        // ============================================================
+        const W = 800,
+            H = 600;
+        const PLAYER_SIZE = 28;
+        const ENEMY_SIZE = 26;
+        const FIREBALL_SIZE = 14;
+        const FIREBALL_SPEED = 5.2;
+        const FIREBALL_MAX_DIST = 480;
+        const EXPLOSION_RADIUS = 130;
+        const DAMAGE_IMPACT_PATH = 28;
+        const DAMAGE_BURN_PATH = 8; // 每秒
+        const DAMAGE_IMPACT_EXPLOSION_CENTER = 55;
+        const DAMAGE_BURN_EXPLOSION_CENTER = 14; // 每秒
+        const ENEMY_MAX_HP = 100;
+        const BURN_DURATION = 2.8; // 秒
+        const SKILL_COOLDOWN = 0.8; // 秒
+
+        // ---- 龙熄术配置 ----
+        const BREATH_DURATION = 2.2; // 持续喷射秒数
+        const BREATH_COOLDOWN = 1.8; // 冷却秒数
+        const BREATH_DAMAGE_PER_SEC = 42; // 每秒灼烧伤害
+        const BREATH_RANGE = 160; // 喷射距离
+        const BREATH_WIDTH = 0.8; // 弧度 (约45度锥形)
+
+        // ============================================================
+        //  工具函数
+        // ============================================================
+        function dist(a, b) {
+            return Math.hypot(a.x - b.x, a.y - b.y);
+        }
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+        function rand(min, max) { return Math.random() * (max - min) + min; }
+
+        function randInt(min, max) { return Math.floor(rand(min, max + 1)); }
+
+        // ---- 像素风格绘制辅助 ----
+        function drawPixelRect(ctx, x, y, w, h, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
+        }
+
+        function drawPixelCircle(ctx, cx, cy, r, color) {
+            ctx.fillStyle = color;
+            const steps = 12;
+            const angleStep = (Math.PI * 2) / steps;
+            ctx.beginPath();
+            for (let i = 0; i <= steps; i++) {
+                const a = i * angleStep;
+                const px = cx + Math.cos(a) * r;
+                const py = cy + Math.sin(a) * r;
+                i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // ============================================================
+        //  游戏状态
+        // ============================================================
+        const keys = {};
+        let mouseX = W / 2,
+            mouseY = H / 2;
+        let killCount = 0;
+        let gameTime = 0;
+
+        // 火球冷却
+        let skillCooldownTimer = 0;
+
+        // 龙熄术状态
+        let isBreathing = false;
+        let breathTimer = 0; // 剩余喷射时间
+        let breathCooldownTimer = 0;
+        // 用于伤害间隔
+        let breathDamageAccum = 0;
+
+        // ---- 游戏对象 ----
+        const player = {
+            x: W / 2,
+            y: H / 2 + 40,
+            size: PLAYER_SIZE,
+            dir: 0, // 弧度
+            speed: 2.6,
+            alive: true,
+        };
+
+        let enemies = [];
+        let fireballs = [];
+        let explosions = [];
+        let particles = [];
+        let damageNumbers = [];
+        let burnEffects = [];
+        // 龙息火焰粒子
+        let breathParticles = [];
+
+        // 敌人出生定时器
+        let enemySpawnTimer = 0;
+        const MAX_ENEMIES = 12;
+
+        // ============================================================
+        //  类定义
+        // ============================================================
+
+        // ---- 敌人 ----
+        class Enemy {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = ENEMY_SIZE;
+                this.hp = ENEMY_MAX_HP;
+                this.maxHp = ENEMY_MAX_HP;
+                this.speed = rand(0.5, 1.2);
+                this.dir = rand(0, Math.PI * 2);
+                this.alive = true;
+                this.hitFlash = 0;
+                this.burnTimer = 0; // 剩余灼烧时间
+                this.burnDamagePerSec = 0;
+                this.id = Math.random();
+                // 随机颜色变体
+                const hue = randInt(0, 20) + 340;
+                this.colorMain = `hsl(${hue}, 70%, 48%)`;
+                this.colorDark = `hsl(${hue}, 65%, 32%)`;
+                this.colorLight = `hsl(${hue}, 75%, 58%)`;
+                this.moveTimer = 0;
+            }
+
+            takeDamage(impact, burnPerSec) {
+                this.hp -= impact;
+                this.hitFlash = 10;
+                if (burnPerSec > 0) {
+                    this.burnTimer = BURN_DURATION;
+                    this.burnDamagePerSec = Math.max(this.burnDamagePerSec, burnPerSec);
+                }
+                if (this.hp <= 0) {
+                    this.hp = 0;
+                    this.alive = false;
+                    killCount++;
+                }
+            }
+
+            update() {
+                if (!this.alive) return;
+                // 灼烧持续伤害
+                if (this.burnTimer > 0) {
+                    this.burnTimer -= 1 / 60;
+                    const burnTick = this.burnDamagePerSec / 60;
+                    this.hp -= burnTick;
+                    if (this.hp <= 0) {
+                        this.hp = 0;
+                        this.alive = false;
+                        killCount++;
+                        return;
+                    }
+                }
+                // 闪白衰减
+                if (this.hitFlash > 0) this.hitFlash--;
+
+                // 简单AI：缓慢向玩家靠近，带随机游走
+                this.moveTimer -= 1 / 60;
+                if (this.moveTimer <= 0) {
+                    this.moveTimer = rand(0.8, 2.5);
+                    const angleToPlayer = Math.atan2(player.y - this.y, player.x - this.x);
+                    this.dir = angleToPlayer + rand(-0.6, 0.6);
+                }
+                const spd = this.speed * 0.8;
+                this.x += Math.cos(this.dir) * spd;
+                this.y += Math.sin(this.dir) * spd;
+                // 边界限制
+                this.x = clamp(this.x, 30, W - 30);
+                this.y = clamp(this.y, 30, H - 30);
+                // 避免重叠
+                for (const other of enemies) {
+                    if (other === this || !other.alive) continue;
+                    const d = dist(this, other);
+                    const minD = this.size / 2 + other.size / 2 + 4;
+                    if (d < minD && d > 0.1) {
+                        const angle = Math.atan2(this.y - other.y, this.x - other.x);
+                        const push = (minD - d) * 0.3;
+                        this.x += Math.cos(angle) * push;
+                        this.y += Math.sin(angle) * push;
+                    }
+                }
+            }
+
+            draw(ctx) {
+                if (!this.alive) return;
+                const s = this.size;
+                const x = Math.round(this.x);
+                const y = Math.round(this.y);
+                const half = s / 2;
+
+                // 阴影
+                drawPixelRect(ctx, x - half + 3, y + half - 2, s - 6, 4, 'rgba(0,0,0,0.3)');
+
+                // 身体
+                const baseColor = this.hitFlash > 0 ? '#ffffff' : this.colorMain;
+                drawPixelRect(ctx, x - half, y - half + 2, s, s - 4, baseColor);
+                drawPixelRect(ctx, x - half + 2, y - half, s - 4, 4, this.colorDark);
+
+                // 眼睛
+                const eyeY = y - 3;
+                const eyeSpacing = 6;
+                drawPixelRect(ctx, x - eyeSpacing - 3, eyeY - 2, 4, 4, '#ffffff');
+                drawPixelRect(ctx, x + eyeSpacing - 1, eyeY - 2, 4, 4, '#ffffff');
+                drawPixelRect(ctx, x - eyeSpacing - 2, eyeY - 1, 2, 2, '#1a1a2e');
+                drawPixelRect(ctx, x + eyeSpacing, eyeY - 1, 2, 2, '#1a1a2e');
+
+                // 嘴巴
+                drawPixelRect(ctx, x - 3, y + 4, 6, 2, this.colorDark);
+
+                // 血条
+                const hpW = s + 6;
+                const hpH = 4;
+                const hpX = x - hpW / 2;
+                const hpY = y - half - 8;
+                drawPixelRect(ctx, hpX, hpY, hpW, hpH, '#2a1a1a');
+                const hpRatio = this.hp / this.maxHp;
+                const hpColor = hpRatio > 0.5 ? '#4ade80' : hpRatio > 0.25 ? '#facc15' : '#f87171';
+                drawPixelRect(ctx, hpX + 1, hpY + 1, Math.max(0, (hpW - 2) * hpRatio), hpH - 2, hpColor);
+
+                // 灼烧特效
+                if (this.burnTimer > 0) {
+                    const intensity = Math.min(1, this.burnTimer / 0.5);
+                    const flicker = Math.sin(gameTime * 20 + this.id * 100) * 0.2 + 0.8;
+                    const alpha = intensity * 0.7 * flicker;
+                    const r = half + 4 + Math.sin(gameTime * 10 + this.id) * 2;
+                    for (let i = 0; i < 4; i++) {
+                        const angle = gameTime * 3 + i * 1.57 + this.id * 2;
+                        const px = x + Math.cos(angle) * r * 0.7;
+                        const py = y + Math.sin(angle) * r * 0.5 - 2;
+                        const size = 3 + Math.sin(gameTime * 8 + i + this.id) * 1.5;
+                        ctx.globalAlpha = alpha * (0.6 + 0.4 * Math.sin(gameTime * 6 + i + this.id));
+                        drawPixelRect(ctx, px - size / 2, py - size / 2, size, size, '#ff6b35');
+                        drawPixelRect(ctx, px - size / 4, py - size / 4 - 1, size / 2, size / 2, '#ffd93d');
+                    }
+                    ctx.globalAlpha = 1;
+                    const flicker2 = Math.sin(gameTime * 15 + this.id * 50) * 0.3 + 0.7;
+                    drawPixelRect(ctx, x - 4, y - half - 14, 8, 4 + flicker2 * 2, '#ff6b35');
+                    drawPixelRect(ctx, x - 2, y - half - 16 - flicker2 * 2, 4, 4, '#ffd93d');
+                }
+            }
+        }
+
+        // ---- 火球 (保持不变) ----
+        class Fireball {
+            constructor(x, y, angle) {
+                this.x = x;
+                this.y = y;
+                this.angle = angle;
+                this.speed = FIREBALL_SPEED;
+                this.size = FIREBALL_SIZE;
+                this.alive = true;
+                this.distTraveled = 0;
+                this.maxDist = FIREBALL_MAX_DIST;
+                this.trail = [];
+                this.hitEnemies = new Set();
+            }
+
+            update() {
+                if (!this.alive) return;
+                const dx = Math.cos(this.angle) * this.speed;
+                const dy = Math.sin(this.angle) * this.speed;
+                this.x += dx;
+                this.y += dy;
+                this.distTraveled += this.speed;
+
+                this.trail.push({ x: this.x, y: this.y, life: 12 });
+                if (this.trail.length > 20) this.trail.shift();
+                for (let i = this.trail.length - 1; i >= 0; i--) {
+                    this.trail[i].life--;
+                    if (this.trail[i].life <= 0) this.trail.splice(i, 1);
+                }
+
+                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) {
+                    this.alive = false;
+                    return;
+                }
+
+                if (this.distTraveled >= this.maxDist) {
+                    this.alive = false;
+                    createExplosion(this.x, this.y, this.angle);
+                    return;
+                }
+
+                for (const enemy of enemies) {
+                    if (!enemy.alive) continue;
+                    if (this.hitEnemies.has(enemy.id)) continue;
+                    const d = dist(this, enemy);
+                    if (d < this.size / 2 + enemy.size / 2) {
+                        enemy.takeDamage(DAMAGE_IMPACT_PATH, DAMAGE_BURN_PATH);
+                        this.hitEnemies.add(enemy.id);
+                        spawnHitParticles(enemy.x, enemy.y, 6, '#ff8844');
+                        spawnDamageNumber(enemy.x, enemy.y - 16, `-${DAMAGE_IMPACT_PATH}`, '#ff8844');
+                        if (!enemy.alive) {
+                            spawnDeathParticles(enemy.x, enemy.y);
+                        }
+                    }
+                }
+            }
+
+            draw(ctx) {
+                if (!this.alive) return;
+                const x = Math.round(this.x);
+                const y = Math.round(this.y);
+                const s = this.size;
+
+                for (const t of this.trail) {
+                    const alpha = t.life / 16;
+                    const size = s * (0.2 + 0.8 * (t.life / 16));
+                    ctx.globalAlpha = alpha * 0.6;
+                    drawPixelRect(ctx, t.x - size / 2, t.y - size / 2, size, size, '#ff6b00');
+                    ctx.globalAlpha = alpha * 0.4;
+                    drawPixelRect(ctx, t.x - size / 4, t.y - size / 4 - 1, size / 2, size / 2, '#ffd93d');
+                }
+                ctx.globalAlpha = 1;
+
+                drawPixelCircle(ctx, x, y, s * 0.9, '#ff4400');
+                drawPixelCircle(ctx, x, y, s * 0.7, '#ff6b00');
+                drawPixelCircle(ctx, x - 1, y - 2, s * 0.45, '#ffaa00');
+                drawPixelCircle(ctx, x + 1, y + 1, s * 0.3, '#ffdd44');
+                drawPixelRect(ctx, x - 2, y - 4, 3, 3, '#ffee88');
+
+                const flicker = Math.sin(gameTime * 20 + this.distTraveled) * 0.3 + 0.7;
+                for (let i = 0; i < 3; i++) {
+                    const angle2 = gameTime * 5 + i * 2.1 + this.distTraveled * 0.1;
+                    const r = s * 0.9 + Math.sin(gameTime * 8 + i) * 2;
+                    const px = x + Math.cos(angle2) * r * 0.6;
+                    const py = y + Math.sin(angle2) * r * 0.4 - 2;
+                    const sz = 2 + Math.sin(gameTime * 10 + i * 2) * 1.5;
+                    ctx.globalAlpha = 0.5 + 0.4 * flicker;
+                    drawPixelRect(ctx, px - sz / 2, py - sz / 2, sz, sz, '#ff8833');
+                    drawPixelRect(ctx, px - sz / 4, py - sz / 4 - 1, sz / 2, sz / 2, '#ffdd44');
+                }
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        // ---- 爆炸 (不变) ----
+        class Explosion {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.radius = 0;
+                this.maxRadius = EXPLOSION_RADIUS;
+                this.life = 28;
+                this.maxLife = 28;
+                this.alive = true;
+                this.doneDamage = false;
+                this.particles = [];
+                for (let i = 0; i < 45; i++) {
+                    const angle = rand(0, Math.PI * 2);
+                    const speed = rand(1.5, 6.5);
+                    const size = rand(2, 6);
+                    const colors = ['#ff4400', '#ff6b00', '#ff8800', '#ffaa00', '#ffdd44', '#ffffff'];
+                    this.particles.push({
+                        x: x + rand(-6, 6),
+                        y: y + rand(-6, 6),
+                        vx: Math.cos(angle) * speed * rand(0.6, 1.4),
+                        vy: Math.sin(angle) * speed * rand(0.6, 1.4),
+                        size: size,
+                        color: colors[randInt(0, colors.length - 1)],
+                        life: rand(12, 28),
+                        maxLife: 28,
+                    });
+                }
+                screenShake = 8;
+            }
+
+            update() {
+                if (!this.alive) return;
+                this.life--;
+                this.radius = this.maxRadius * (1 - (this.life / this.maxLife) * 0.3);
+                if (this.life <= 0) {
+                    this.alive = false;
+                    return;
+                }
+                for (const p of this.particles) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vx *= 0.97;
+                    p.vy *= 0.97;
+                    p.vy += 0.05;
+                    p.life--;
+                    p.size *= 0.98;
+                }
+                if (!this.doneDamage) {
+                    this.doneDamage = true;
+                    applyExplosionDamage(this.x, this.y);
+                }
+            }
+
+            draw(ctx) {
+                if (!this.alive) return;
+                const x = Math.round(this.x);
+                const y = Math.round(this.y);
+                const r = Math.round(this.radius);
+                const alpha = this.life / this.maxLife;
+
+                ctx.globalAlpha = alpha * 0.3;
+                drawPixelCircle(ctx, x, y, r, '#ff4400');
+                ctx.globalAlpha = alpha * 0.5;
+                drawPixelCircle(ctx, x, y, r * 0.8, '#ff6600');
+                ctx.globalAlpha = alpha * 0.7;
+                drawPixelCircle(ctx, x, y, r * 0.55, '#ff8800');
+                ctx.globalAlpha = alpha * 0.9;
+                drawPixelCircle(ctx, x, y, r * 0.3, '#ffcc00');
+                ctx.globalAlpha = 1;
+
+                drawPixelCircle(ctx, x, y, r * 0.15, '#ffffff');
+
+                for (const p of this.particles) {
+                    if (p.life <= 0 || p.size < 0.3) continue;
+                    const pa = p.life / p.maxLife;
+                    ctx.globalAlpha = pa * 0.9;
+                    const sz = Math.max(1, Math.round(p.size));
+                    drawPixelRect(ctx, p.x - sz / 2, p.y - sz / 2, sz, sz, p.color);
+                }
+                ctx.globalAlpha = 1;
+
+                if (this.life > this.maxLife * 0.7) {
+                    const flashAlpha = (this.life - this.maxLife * 0.7) / (this.maxLife * 0.3) * 0.3;
+                    ctx.globalAlpha = flashAlpha;
+                    drawPixelRect(ctx, 0, 0, W, H, '#ffffff');
+                    ctx.globalAlpha = 1;
+                }
+            }
+        }
+
+        // ---- 伤害数字 (不变) ----
+        class DamageNumber {
+            constructor(x, y, text, color) {
+                this.x = x;
+                this.y = y;
+                this.text = text;
+                this.color = color;
+                this.life = 40;
+                this.maxLife = 40;
+                this.alive = true;
+                this.vy = -1.8;
+                this.vx = rand(-0.6, 0.6);
+                this.size = 10 + (text.length > 3 ? 0 : 2);
+            }
+
+            update() {
+                this.y += this.vy;
+                this.vy *= 0.96;
+                this.x += this.vx;
+                this.life--;
+                if (this.life <= 0) this.alive = false;
+            }
+
+            draw(ctx) {
+                if (!this.alive) return;
+                const alpha = this.life / this.maxLife;
+                ctx.globalAlpha = alpha;
+                ctx.font = `${this.size}px "Press Start 2P", monospace`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = 'rgba(0,0,0,0.6)';
+                ctx.fillText(this.text, this.x + 1, this.y + 2);
+                ctx.fillStyle = this.color;
+                ctx.fillText(this.text, this.x, this.y);
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        // ============================================================
+        //  特效生成函数
+        // ============================================================
+
+        function spawnHitParticles(x, y, count, color) {
+            for (let i = 0; i < count; i++) {
+                const angle = rand(0, Math.PI * 2);
+                const speed = rand(1, 4);
+                particles.push({
+                    x: x + rand(-4, 4),
+                    y: y + rand(-4, 4),
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 1,
+                    size: rand(2, 5),
+                    color: color,
+                    life: rand(10, 22),
+                    maxLife: 22,
+                    gravity: 0.08,
+                });
+            }
+        }
+
+        function spawnDeathParticles(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const angle = rand(0, Math.PI * 2);
+                const speed = rand(1, 6);
+                const colors = ['#ff4444', '#ff8844', '#ffcc44', '#aa44ff'];
+                particles.push({
+                    x: x + rand(-6, 6),
+                    y: y + rand(-6, 6),
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 2,
+                    size: rand(2, 6),
+                    color: colors[randInt(0, colors.length - 1)],
+                    life: rand(15, 35),
+                    maxLife: 35,
+                    gravity: 0.06,
+                });
+            }
+        }
+
+        function spawnDamageNumber(x, y, text, color) {
+            damageNumbers.push(new DamageNumber(x, y, text, color));
+        }
+
+        let screenShake = 0;
+
+        // ---- 创建爆炸 ----
+        function createExplosion(x, y, angle) {
+            const exp = new Explosion(x, y);
+            explosions.push(exp);
+            for (let i = 0; i < 15; i++) {
+                const a = angle + rand(-1.2, 1.2);
+                const spd = rand(2, 6);
+                particles.push({
+                    x: x + rand(-4, 4),
+                    y: y + rand(-4, 4),
+                    vx: Math.cos(a) * spd,
+                    vy: Math.sin(a) * spd - 1,
+                    size: rand(2, 5),
+                    color: ['#ff4400', '#ff8800', '#ffcc00', '#ff6622'][randInt(0, 3)],
+                    life: rand(10, 25),
+                    maxLife: 25,
+                    gravity: 0.04,
+                });
+            }
+        }
+
+        // ---- 应用爆炸伤害 ----
+        function applyExplosionDamage(cx, cy) {
+            for (const enemy of enemies) {
+                if (!enemy.alive) continue;
+                const d = dist({ x: cx, y: cy }, enemy);
+                if (d > EXPLOSION_RADIUS) continue;
+                const factor = 1 - (d / EXPLOSION_RADIUS);
+                const damageFactor = 0.15 + 0.85 * factor;
+                const impact = DAMAGE_IMPACT_EXPLOSION_CENTER * damageFactor;
+                const burn = DAMAGE_BURN_EXPLOSION_CENTER * damageFactor;
+                enemy.takeDamage(impact, burn);
+                const color = factor > 0.6 ? '#ff4444' : '#ff8844';
+                spawnHitParticles(enemy.x, enemy.y, 8 + Math.floor(factor * 8), color);
+                spawnDamageNumber(enemy.x, enemy.y - 18, `-${Math.round(impact)}`, color);
+                if (!enemy.alive) {
+                    spawnDeathParticles(enemy.x, enemy.y);
+                }
+            }
+        }
+
+        // ============================================================
+        //  龙熄术相关函数
+        // ============================================================
+
+        // 开始喷射
+        function startBreath() {
+            if (breathCooldownTimer > 0) return;
+            if (isBreathing) return;
+            isBreathing = true;
+            breathTimer = BREATH_DURATION;
+            breathDamageAccum = 0;
+            breathStatusEl.textContent = '喷射中';
+            breathStatusEl.className = 'skill-status cooldown';
+        }
+
+        // 停止喷射
+        function stopBreath() {
+            isBreathing = false;
+            breathTimer = 0;
+            // 不立即进入冷却，等自然冷却逻辑
+        }
+
+        // 更新龙息
+        function updateBreath(dt) {
+            // 冷却计时
+            if (breathCooldownTimer > 0) {
+                breathCooldownTimer -= dt;
+                if (breathCooldownTimer < 0) breathCooldownTimer = 0;
+                if (breathCooldownTimer <= 0 && !isBreathing) {
+                    breathStatusEl.textContent = '就绪';
+                    breathStatusEl.className = 'skill-status';
+                }
+            }
+
+            if (!isBreathing) return;
+
+            // 持续时间减少
+            breathTimer -= dt;
+            if (breathTimer <= 0) {
+                isBreathing = false;
+                breathCooldownTimer = BREATH_COOLDOWN;
+                breathStatusEl.textContent = '冷却中';
+                breathStatusEl.className = 'skill-status cooldown';
+                return;
+            }
+
+            // 更新玩家朝向鼠标
+            const angleToMouse = Math.atan2(mouseY - player.y, mouseX - player.x);
+            if (Math.hypot(mouseX - player.x, mouseY - player.y) > 5) {
+                player.dir = angleToMouse;
+            }
+
+            // 喷射火焰粒子效果
+            const angle = player.dir;
+            const startX = player.x + Math.cos(angle) * 20;
+            const startY = player.y + Math.sin(angle) * 20;
+            for (let i = 0; i < 3; i++) {
+                const spread = (rand(-1, 1)) * BREATH_WIDTH * 0.5;
+                const a = angle + spread;
+                const dist = rand(10, BREATH_RANGE);
+                const px = startX + Math.cos(a) * dist;
+                const py = startY + Math.sin(a) * dist;
+                const size = rand(3, 8);
+                const colors = ['#ff4400', '#ff6600', '#ff8800', '#ffaa00', '#ffcc44'];
+                breathParticles.push({
+                    x: px,
+                    y: py,
+                    vx: (rand(-0.5, 0.5)) * 1.2,
+                    vy: (rand(-0.5, 0.5)) * 1.2 - rand(0, 0.5),
+                    size: size,
+                    color: colors[randInt(0, colors.length - 1)],
+                    life: rand(8, 18),
+                    maxLife: 18,
+                });
+            }
+
+            // 伤害检测：锥形范围
+            const range = BREATH_RANGE;
+            const halfWidth = BREATH_WIDTH / 2;
+            for (const enemy of enemies) {
+                if (!enemy.alive) continue;
+                const dx = enemy.x - player.x;
+                const dy = enemy.y - player.y;
+                const d = Math.hypot(dx, dy);
+                if (d > range) continue;
+                // 角度差
+                let ang = Math.atan2(dy, dx);
+                let diff = ang - angle;
+                while (diff > Math.PI) diff -= 2 * Math.PI;
+                while (diff < -Math.PI) diff += 2 * Math.PI;
+                if (Math.abs(diff) > halfWidth) continue;
+
+                // 施加伤害（每秒伤害 * dt）
+                const damagePerSec = BREATH_DAMAGE_PER_SEC;
+                const impact = damagePerSec * dt;
+                const burn = damagePerSec; // 灼烧每秒伤害
+                enemy.takeDamage(impact, burn);
+                // 粒子反馈
+                spawnHitParticles(enemy.x, enemy.y, 2, '#ff8844');
+                if (!enemy.alive) {
+                    spawnDeathParticles(enemy.x, enemy.y);
+                }
+            }
+
+            // 更新UI
+            breathStatusEl.textContent = `喷射 ${breathTimer.toFixed(1)}s`;
+        }
+
+        // ============================================================
+        //  生成敌人
+        // ============================================================
+        function spawnEnemy() {
+            if (enemies.filter(e => e.alive).length >= MAX_ENEMIES) return;
+            let x, y, attempts = 0;
+            do {
+                const margin = 50;
+                x = rand(margin, W - margin);
+                y = rand(margin, H - margin);
+                attempts++;
+            } while (dist({ x, y }, player) < 150 && attempts < 30);
+            const enemy = new Enemy(x, y);
+            enemies.push(enemy);
+        }
+
+        function initEnemies(count) {
+            for (let i = 0; i < count; i++) {
+                spawnEnemy();
+            }
+        }
+
+        // ============================================================
+        //  发射火球
+        // ============================================================
+        function shootFireball() {
+            if (skillCooldownTimer > 0) return;
+            const angle = Math.atan2(mouseY - player.y, mouseX - player.x);
+            const fb = new Fireball(player.x, player.y, angle);
+            fireballs.push(fb);
+            skillCooldownTimer = SKILL_COOLDOWN;
+            fireballStatusEl.textContent = '冷却中';
+            fireballStatusEl.className = 'skill-status cooldown';
+            for (let i = 0; i < 8; i++) {
+                const a = angle + rand(-0.4, 0.4);
+                const spd = rand(0.5, 2.5);
+                particles.push({
+                    x: player.x + Math.cos(angle) * 16,
+                    y: player.y + Math.sin(angle) * 16,
+                    vx: Math.cos(a) * spd,
+                    vy: Math.sin(a) * spd - 0.5,
+                    size: rand(2, 4),
+                    color: ['#ff6600', '#ffaa00', '#ff4400'][randInt(0, 2)],
+                    life: rand(6, 14),
+                    maxLife: 14,
+                    gravity: 0.02,
+                });
+            }
+        }
+
+        // ============================================================
+        //  更新逻辑
+        // ============================================================
+        function update() {
+            const dt = 1 / 60;
+            gameTime += dt;
+
+            // 火球冷却
+            if (skillCooldownTimer > 0) {
+                skillCooldownTimer -= dt;
+                if (skillCooldownTimer <= 0) {
+                    skillCooldownTimer = 0;
+                    fireballStatusEl.textContent = '就绪';
+                    fireballStatusEl.className = 'skill-status';
+                }
+            }
+
+            // 更新龙息
+            updateBreath(dt);
+
+            // ---- 玩家移动 ----
+            let dx = 0,
+                dy = 0;
+            if (keys['w'] || keys['arrowup']) dy = -1;
+            if (keys['s'] || keys['arrowdown']) dy = 1;
+            if (keys['a'] || keys['arrowleft']) dx = -1;
+            if (keys['d'] || keys['arrowright']) dx = 1;
+            if (dx !== 0 || dy !== 0) {
+                const len = Math.hypot(dx, dy);
+                dx /= len;
+                dy /= len;
+                player.x += dx * player.speed;
+                player.y += dy * player.speed;
+                // 如果不是喷射状态，才更新朝向（喷射时由龙息更新）
+                if (!isBreathing) {
+                    player.dir = Math.atan2(dy, dx);
+                }
+            }
+            player.x = clamp(player.x, 20, W - 20);
+            player.y = clamp(player.y, 20, H - 20);
+
+            // 非喷射时面向鼠标
+            if (!isBreathing) {
+                const angleToMouse = Math.atan2(mouseY - player.y, mouseX - player.x);
+                if (Math.hypot(mouseX - player.x, mouseY - player.y) > 5) {
+                    player.dir = angleToMouse;
+                }
+            }
+
+            // ---- 更新敌人 ----
+            for (const enemy of enemies) {
+                enemy.update();
+            }
+            enemies = enemies.filter(e => e.alive);
+
+            // ---- 更新火球 ----
+            for (const fb of fireballs) {
+                fb.update();
+            }
+            fireballs = fireballs.filter(fb => fb.alive);
+
+            // ---- 更新爆炸 ----
+            for (const exp of explosions) {
+                exp.update();
+            }
+            explosions = explosions.filter(exp => exp.alive);
+
+            // ---- 更新粒子 ----
+            for (const p of particles) {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += p.gravity || 0.04;
+                p.life--;
+                p.size *= 0.98;
+            }
+            particles = particles.filter(p => p.life > 0 && p.size > 0.3);
+
+            // ---- 更新龙息粒子 ----
+            for (const p of breathParticles) {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.02;
+                p.life--;
+                p.size *= 0.97;
+            }
+            breathParticles = breathParticles.filter(p => p.life > 0 && p.size > 0.5);
+
+            // ---- 更新伤害数字 ----
+            for (const dn of damageNumbers) {
+                dn.update();
+            }
+            damageNumbers = damageNumbers.filter(dn => dn.alive);
+
+            // ---- 屏幕震动 ----
+            if (screenShake > 0) screenShake *= 0.9;
+            if (screenShake < 0.1) screenShake = 0;
+
+            // ---- 敌人生成 ----
+            enemySpawnTimer -= dt;
+            if (enemySpawnTimer <= 0) {
+                const alive = enemies.filter(e => e.alive).length;
+                if (alive < MAX_ENEMIES) {
+                    spawnEnemy();
+                }
+                enemySpawnTimer = rand(2.0, 4.5);
+            }
+
+            // ---- 更新UI ----
+            const aliveCount = enemies.filter(e => e.alive).length;
+            enemyCountEl.textContent = aliveCount;
+            killCountEl.textContent = killCount;
+        }
+
+        // ============================================================
+        //  绘制
+        // ============================================================
+        function draw() {
+            ctx.save();
+
+            if (screenShake > 0.5) {
+                const shakeX = (Math.random() - 0.5) * screenShake * 1.2;
+                const shakeY = (Math.random() - 0.5) * screenShake * 1.2;
+                ctx.translate(shakeX, shakeY);
+            }
+
+            // ---- 背景 ----
+            drawPixelRect(ctx, 0, 0, W, H, '#2d5a27');
+            const gridSize = 32;
+            for (let x = 0; x < W; x += gridSize) {
+                for (let y = 0; y < H; y += gridSize) {
+                    const bright = ((Math.floor(x / gridSize) + Math.floor(y / gridSize)) % 2 === 0) ? '#3a6a32' : '#2d5a27';
+                    drawPixelRect(ctx, x, y, gridSize, gridSize, bright);
+                }
+            }
+            for (let i = 0; i < 80; i++) {
+                const x = (i * 137 + 50) % W;
+                const y = (i * 251 + 30) % H;
+                const size = 2 + (i % 3);
+                const shade = i % 2 === 0 ? '#4a7a3a' : '#3a6a32';
+                drawPixelRect(ctx, x, y, size, size + 2, shade);
+                drawPixelRect(ctx, x + size, y + 1, size, size + 1, shade);
+            }
+
+            // ---- 绘制敌人 ----
+            for (const enemy of enemies) {
+                enemy.draw(ctx);
+            }
+
+            // ---- 绘制龙息粒子（火焰） ----
+            for (const p of breathParticles) {
+                const alpha = p.life / p.maxLife;
+                ctx.globalAlpha = alpha * 0.9;
+                const sz = Math.max(1, Math.round(p.size));
+                drawPixelRect(ctx, p.x - sz / 2, p.y - sz / 2, sz, sz, p.color);
+                // 加亮心
+                if (sz > 3) {
+                    ctx.globalAlpha = alpha * 0.5;
+                    drawPixelRect(ctx, p.x - sz / 4, p.y - sz / 4 - 1, sz / 2, sz / 2, '#ffdd44');
+                }
+            }
+            ctx.globalAlpha = 1;
+
+            // ---- 绘制火球 ----
+            for (const fb of fireballs) {
+                fb.draw(ctx);
+            }
+
+            // ---- 绘制爆炸 ----
+            for (const exp of explosions) {
+                exp.draw(ctx);
+            }
+
+            // ---- 绘制通用粒子 ----
+            for (const p of particles) {
+                const alpha = p.life / p.maxLife;
+                ctx.globalAlpha = alpha * 0.9;
+                const sz = Math.max(1, Math.round(p.size));
+                drawPixelRect(ctx, p.x - sz / 2, p.y - sz / 2, sz, sz, p.color);
+            }
+            ctx.globalAlpha = 1;
+
+            // ---- 绘制伤害数字 ----
+            for (const dn of damageNumbers) {
+                dn.draw(ctx);
+            }
+
+            // ---- 绘制玩家 ----
+            drawPlayer(ctx);
+
+            // ---- 瞄准指示器 ----
+            drawAim(ctx);
+
+            // ---- 技能指示器 (火球轨迹) ----
+            if (skillCooldownTimer <= 0) {
+                drawAimLine(ctx);
+            }
+
+            // ---- 龙息指示器 (喷射时显示范围) ----
+            if (isBreathing) {
+                drawBreathIndicator(ctx);
+            }
+
+            // ---- 底部信息 ----
+            ctx.font = '8px "Press Start 2P", monospace';
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            drawPixelRect(ctx, 10, H - 22, 200, 16, '#1a1a2e');
+            ctx.fillStyle = '#8899bb';
+            ctx.fillText('🔥左键 🐉按住右键 · WASD', 16, H - 11);
+
+            ctx.restore();
+        }
+
+        // ---- 绘制玩家 ----
+        function drawPlayer(ctx) {
+            const x = Math.round(player.x);
+            const y = Math.round(player.y);
+            const s = player.size;
+            const half = s / 2;
+
+            drawPixelRect(ctx, x - half + 4, y + half - 3, s - 8, 4, 'rgba(0,0,0,0.3)');
+            drawPixelRect(ctx, x - half, y - half + 4, s, s - 8, '#4a7db4');
+            drawPixelRect(ctx, x - half + 2, y - half + 2, s - 4, 4, '#6a9dd4');
+            drawPixelRect(ctx, x - half + 4, y + half - 10, s - 8, 6, '#3a6d94');
+            drawPixelRect(ctx, x - half + 6, y + half - 6, 2, 4, '#2a5d84');
+            drawPixelRect(ctx, x + half - 8, y + half - 6, 2, 4, '#2a5d84');
+
+            drawPixelRect(ctx, x - half + 4, y - half, s - 8, 6, '#f5d0b8');
+            drawPixelRect(ctx, x - half + 2, y - half - 2, s - 4, 4, '#6a4a3a');
+            drawPixelRect(ctx, x - half, y - half, 4, 4, '#6a4a3a');
+            drawPixelRect(ctx, x + half - 4, y - half, 4, 4, '#6a4a3a');
+
+            const eyeOff = 4;
+            const eyeX = x + Math.cos(player.dir) * eyeOff;
+            const eyeY = y - 3 + Math.sin(player.dir) * eyeOff * 0.3;
+            const eyeOff2 = 3;
+            const ex1 = x - eyeOff2 + Math.cos(player.dir) * 2;
+            const ey1 = y - 3 + Math.sin(player.dir) * 0.8;
+            const ex2 = x + eyeOff2 + Math.cos(player.dir) * 2;
+            const ey2 = y - 3 + Math.sin(player.dir) * 0.8;
+
+            drawPixelRect(ctx, ex1 - 1, ey1 - 1, 3, 3, '#ffffff');
+            drawPixelRect(ctx, ex2 - 1, ey2 - 1, 3, 3, '#ffffff');
+            const lookX = Math.round(Math.cos(player.dir) * 1.2);
+            const lookY = Math.round(Math.sin(player.dir) * 1.2);
+            drawPixelRect(ctx, ex1 + lookX, ey1 + lookY, 1.5, 1.5, '#1a1a2e');
+            drawPixelRect(ctx, ex2 + lookX, ey2 + lookY, 1.5, 1.5, '#1a1a2e');
+
+            drawPixelRect(ctx, x - 2, y + 3, 4, 1.5, '#b07a6a');
+
+            const staffX = x + Math.cos(player.dir + 0.5) * half * 0.9;
+            const staffY = y + Math.sin(player.dir + 0.5) * half * 0.9;
+            drawPixelRect(ctx, staffX - 1, staffY - half, 2, half + 4, '#8a7a5a');
+            drawPixelRect(ctx, staffX - 3, staffY - half - 2, 6, 4, '#c8a86a');
+            drawPixelRect(ctx, staffX - 2, staffY - half - 4, 4, 3, '#ff8844');
+        }
+
+        // ---- 瞄准指示器 ----
+        function drawAim(ctx) {
+            const x = player.x;
+            const y = player.y;
+            const angle = player.dir;
+            const len = 40;
+
+            ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 6]);
+            ctx.beginPath();
+            ctx.moveTo(x + Math.cos(angle) * 18, y + Math.sin(angle) * 18);
+            ctx.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            const cx = x + Math.cos(angle) * len;
+            const cy = y + Math.sin(angle) * len;
+            ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(cx - 4, cy - 4, 8, 8);
+            ctx.strokeRect(cx - 1, cy - 7, 2, 4);
+            ctx.strokeRect(cx - 1, cy + 3, 2, 4);
+            ctx.strokeRect(cx - 7, cy - 1, 4, 2);
+            ctx.strokeRect(cx + 3, cy - 1, 4, 2);
+        }
+
+        // ---- 火球轨迹预览 ----
+        function drawAimLine(ctx) {
+            const x = player.x;
+            const y = player.y;
+            const angle = player.dir;
+            const maxDist = FIREBALL_MAX_DIST;
+
+            ctx.globalAlpha = 0.12;
+            ctx.fillStyle = '#ff6600';
+            for (let i = 0; i < maxDist; i += 6) {
+                const px = x + Math.cos(angle) * i;
+                const py = y + Math.sin(angle) * i;
+                const size = 1 + (i / maxDist) * 2;
+                drawPixelRect(ctx, px - size / 2, py - size / 2, size, size, '#ff8844');
+            }
+            ctx.globalAlpha = 1;
+
+            const endX = x + Math.cos(angle) * maxDist;
+            const endY = y + Math.sin(angle) * maxDist;
+            ctx.globalAlpha = 0.3;
+            ctx.strokeStyle = '#ff4400';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(endX, endY, 8, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.globalAlpha = 0.15;
+            drawPixelCircle(ctx, endX, endY, 12, '#ff4400');
+            ctx.globalAlpha = 1;
+        }
+
+        // ---- 龙息指示器 ----
+        function drawBreathIndicator(ctx) {
+            const x = player.x;
+            const y = player.y;
+            const angle = player.dir;
+            const range = BREATH_RANGE;
+            const halfWidth = BREATH_WIDTH / 2;
+
+            // 锥形范围半透明
+            ctx.globalAlpha = 0.15;
+            ctx.fillStyle = '#ff4400';
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            const steps = 20;
+            for (let i = 0; i <= steps; i++) {
+                const t = i / steps;
+                const a = angle - halfWidth + t * BREATH_WIDTH;
+                const r = range * (0.8 + 0.2 * Math.sin(t * Math.PI)); // 稍微形状变化
+                const px = x + Math.cos(a) * r;
+                const py = y + Math.sin(a) * r;
+                i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            // 边缘线
+            ctx.globalAlpha = 0.3;
+            ctx.strokeStyle = '#ff8844';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 5]);
+            for (let side = -1; side <= 1; side += 2) {
+                ctx.beginPath();
+                const a = angle + side * halfWidth;
+                ctx.moveTo(x + Math.cos(a) * 10, y + Math.sin(a) * 10);
+                ctx.lineTo(x + Math.cos(a) * range, y + Math.sin(a) * range);
+                ctx.stroke();
+            }
+            ctx.setLineDash([]);
+            ctx.globalAlpha = 1;
+        }
+
+        // ============================================================
+        //  游戏主循环
+        // ============================================================
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        // ============================================================
+        //  事件绑定
+        // ============================================================
+
+        // ---- 键盘 ----
+        document.addEventListener('keydown', (e) => {
+            keys[e.key.toLowerCase()] = true;
+            if (e.key === ' ') {
+                e.preventDefault();
+                shootFireball();
+            }
+            // 也可以用F键开关龙息（可选），但右键更方便
+        });
+        document.addEventListener('keyup', (e) => {
+            keys[e.key.toLowerCase()] = false;
+        });
+
+        // ---- 鼠标 ----
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            mouseX = (e.clientX - rect.left) * scaleX;
+            mouseY = (e.clientY - rect.top) * scaleY;
+            mouseX = clamp(mouseX, 0, W);
+            mouseY = clamp(mouseY, 0, H);
+        });
+
+        // 左键火球
+        canvas.addEventListener('mousedown', (e) => {
+            if (e.button === 0) {
+                shootFireball();
+            }
+            if (e.button === 2) {
+                // 右键开始龙息
+                startBreath();
+            }
+        });
+
+        canvas.addEventListener('mouseup', (e) => {
+            if (e.button === 2) {
+                stopBreath();
+            }
+        });
+
+        // 防止右键菜单
+        canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        // 当鼠标离开canvas时，停止龙息（避免卡住）
+        canvas.addEventListener('mouseleave', () => {
+            if (isBreathing) {
+                stopBreath();
+            }
+        });
+
+        // ---- 窗口自适应 ----
+        function resizeCanvas() {
+            const wrapper = canvas.parentElement;
+            const maxWidth = window.innerWidth - 40;
+            const maxHeight = window.innerHeight - 120;
+            const ratio = canvas.width / canvas.height;
+            let w = Math.min(800, maxWidth);
+            let h = w / ratio;
+            if (h > maxHeight) {
+                h = maxHeight;
+                w = h * ratio;
+            }
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        // ============================================================
+        //  初始化
+        // ============================================================
+        function init() {
+            initEnemies(6);
+            enemySpawnTimer = 2;
+            resizeCanvas();
+            gameLoop();
+        }
+
+        init();
+
+        // 额外：窗口失去焦点时重置按键和龙息
+        window.addEventListener('blur', () => {
+            for (const key in keys) keys[key] = false;
+            if (isBreathing) stopBreath();
+        });
+
+        // ---- 触摸支持 ----
+        let touchX = W / 2,
+            touchY = H / 2;
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const touch = e.touches[0];
+            touchX = (touch.clientX - rect.left) * scaleX;
+            touchY = (touch.clientY - rect.top) * scaleY;
+            touchX = clamp(touchX, 0, W);
+            touchY = clamp(touchY, 0, H);
+            mouseX = touchX;
+            mouseY = touchY;
+            // 触摸时发射火球（左键效果）或者龙息？为简单，发射火球
+            shootFireball();
+        }, { passive: false });
+
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const touch = e.touches[0];
+            touchX = (touch.clientX - rect.left) * scaleX;
+            touchY = (touch.clientY - rect.top) * scaleY;
+            touchX = clamp(touchX, 0, W);
+            touchY = clamp(touchY, 0, H);
+            mouseX = touchX;
+            mouseY = touchY;
+        }, { passive: false });
+
+        console.log('🔥 火球术 + 🐉 龙熄术 已启动!');
+        console.log('左键: 火球 | 按住右键: 龙熄喷射 | WASD移动');
+    </script>
+</body>
+</html>

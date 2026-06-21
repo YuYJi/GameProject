@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>像素火球术 + 龙熄术 + 火雨术 - 2D RPG 技能演示</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Press Start 2P', monospace;
+        }
+        .game-wrapper {
+            background: #2d2d44;
+            padding: 20px 20px 24px;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), inset 0 0 0 2px #4a4a6a;
+            border-bottom: 6px solid #1a1a2e;
+        }
+        canvas {
+            display: block;
+            width: 800px;
+            height: 600px;
+            border-radius: 8px;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            background: #2d5a27;
+            cursor: crosshair;
+            box-shadow: inset 0 0 0 2px #4a4a6a;
+        }
+        .ui-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            padding: 0 8px;
+            color: #c8d0e0;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 0 #0a0a1a;
+            flex-wrap: wrap;
+            gap: 8px;
+            width: 800px;
+        }
+        .ui-bar .info {
+            display: flex;
+            gap: 18px;
+            background: #1e1e32;
+            padding: 6px 16px;
+            border-radius: 30px;
+            border-bottom: 3px solid #0a0a1a;
+            flex-wrap: nowrap;
+            width: 600px;
+            justify-content: space-around;
+        }
+        .ui-bar .info > div {
+            min-width: 80px;
+            max-width: 80px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .ui-bar .info span {
+            color: #f0e68c;
+        }
+        .ui-bar .info .label {
+            color: #8899bb;
+        }
+        .ui-bar .controls {
+            background: #1e1e32;
+            padding: 6px 16px;
+            border-radius: 30px;
+            border-bottom: 3px solid #0a0a1a;
+            font-size: 8px;
+            color: #8899bb;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            width: 180px;
+            justify-content: center;
+        }
+        .ui-bar .controls kbd {
+            background: #2a2a44;
+            color: #f0e68c;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 8px;
+            border-bottom: 2px solid #0a0a1a;
+        }
+        .skill-status {
+            color: #4ade80;
+        }
+        .skill-status.cooldown {
+            color: #f87171;
+        }
+        @media (max-width: 860px) {
+            canvas {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 800/600;
+            }
+            .game-wrapper {
+                padding: 12px;
+                margin: 10px;
+                width: 95vw;
+            }
+            .ui-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .ui-bar .info,
+            .ui-bar .controls {
+                justify-content: center;
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/index-BDkXfJ2e.js"></script>
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="ui-bar">
+            <div class="info">
+                <div><span class="label">🔥 火弹</span> <span id="fireballStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">⚔️ 斩击</span> <span id="slashStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">🐉 龙熄</span> <span id="breathStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">☄️ 火雨</span> <span id="firerainStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">💧 水罩</span> <span id="waterShieldStatus" class="skill-status">就绪</span></div>
+                <div><span class="label">👾 敌人</span> <span id="enemyCount">0</span></div>
+                <div><span class="label">⚔️ 击杀</span> <span id="killCount">0</span></div>
+            </div>
+            <div class="controls">
+                <kbd>W A S D</kbd> 移动 ·
+                <kbd>1</kbd> 火弹术 ·
+                <kbd>左键</kbd> 斩击 ·
+                <kbd>2</kbd> 龙熄术 ·
+                <kbd>3</kbd> 火雨术 ·
+                <kbd>4</kbd> 水波罩
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

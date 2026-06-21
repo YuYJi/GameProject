@@ -1,0 +1,18 @@
+{
+  "name": "stylite-game",
+  "version": "1.0.0",
+  "description": "修仙题材像素风格战斗游戏",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.70.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
