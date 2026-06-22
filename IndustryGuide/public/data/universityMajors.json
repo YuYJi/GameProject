@@ -1,50 +1,1122 @@
 [
-  { "id": "u1", "name": "计算机科学与技术", "relatedSubjects": ["ms1", "ms2"], "relatedIndustries": ["i1", "i2", "i5", "i6"] },
-  { "id": "u2", "name": "电子信息工程", "relatedSubjects": ["ms1", "ms2"], "relatedIndustries": ["i1", "i2", "i7", "i8"] },
-  { "id": "u3", "name": "数学与应用数学", "relatedSubjects": ["ms1", "ms3"], "relatedIndustries": ["i1", "i3", "i9", "i10"] },
-  { "id": "u4", "name": "生物医学工程", "relatedSubjects": ["ms1", "ms4"], "relatedIndustries": ["i4", "i11", "i12"] },
-  { "id": "u5", "name": "统计学", "relatedSubjects": ["ms1"], "relatedIndustries": ["i3", "i9", "i13", "i14"] },
-  { "id": "u6", "name": "金融工程", "relatedSubjects": ["ms1"], "relatedIndustries": ["i3", "i15", "i16", "i17", "i45"] },
-  { "id": "u7", "name": "数据科学", "relatedSubjects": ["ms1"], "relatedIndustries": ["i1", "i3", "i13", "i18"] },
-  { "id": "u8", "name": "物理学", "relatedSubjects": ["ms2"], "relatedIndustries": ["i9", "i10", "i19", "i20"] },
-  { "id": "u9", "name": "光电信息科学", "relatedSubjects": ["ms2"], "relatedIndustries": ["i2", "i7", "i11", "i21"] },
-  { "id": "u10", "name": "核工程与核技术", "relatedSubjects": ["ms2"], "relatedIndustries": ["i11", "i22", "i23", "i24", "i43"] },
-  { "id": "u11", "name": "化学工程与工艺", "relatedSubjects": ["ms3"], "relatedIndustries": ["i12", "i14", "i22", "i25"] },
-  { "id": "u12", "name": "生物工程", "relatedSubjects": ["ms3", "ms4"], "relatedIndustries": ["i13", "i16", "i26", "i27"] },
-  { "id": "u13", "name": "材料科学与工程", "relatedSubjects": ["ms3"], "relatedIndustries": ["i7", "i12", "i28", "i29"] },
-  { "id": "u14", "name": "环境科学", "relatedSubjects": ["ms3", "ms8"], "relatedIndustries": ["i14", "i15", "i30"] },
-  { "id": "u15", "name": "临床医学", "relatedSubjects": ["ms4"], "relatedIndustries": ["i4", "i17", "i18", "i26"] },
-  { "id": "u16", "name": "药学", "relatedSubjects": ["ms4"], "relatedIndustries": ["i13", "i16", "i17", "i27", "i42"] },
-  { "id": "u17", "name": "护理学", "relatedSubjects": ["ms4"], "relatedIndustries": ["i4", "i18", "i26"] },
-  { "id": "u18", "name": "中国语言文学", "relatedSubjects": ["ms5", "ms6"], "relatedIndustries": ["i19", "i20", "i24", "i28", "i46"] },
-  { "id": "u19", "name": "外国语言文学", "relatedSubjects": ["ms5", "ms6"], "relatedIndustries": ["i19", "i20", "i24", "i25"] },
-  { "id": "u20", "name": "法学", "relatedSubjects": ["ms5", "ms7", "ms9"], "relatedIndustries": ["i21", "i23", "i27"] },
-  { "id": "u21", "name": "新闻传播学", "relatedSubjects": ["ms5"], "relatedIndustries": ["i19", "i24", "i28", "i29"] },
-  { "id": "u22", "name": "广告学", "relatedSubjects": ["ms5", "ms9"], "relatedIndustries": ["i19", "i23", "i29"] },
-  { "id": "u23", "name": "国际经济与贸易", "relatedSubjects": ["ms6"], "relatedIndustries": ["i15", "i24", "i25", "i30", "i48"] },
-  { "id": "u24", "name": "商务英语", "relatedSubjects": ["ms6"], "relatedIndustries": ["i24", "i25", "i26", "i47"] },
-  { "id": "u25", "name": "翻译", "relatedSubjects": ["ms6"], "relatedIndustries": ["i19", "i24", "i25"] },
-  { "id": "u26", "name": "历史学", "relatedSubjects": ["ms7", "ms8"], "relatedIndustries": ["i27", "i28", "i29"] },
-  { "id": "u27", "name": "政治学与行政学", "relatedSubjects": ["ms7", "ms9"], "relatedIndustries": ["i21", "i23", "i27"] },
-  { "id": "u28", "name": "公共事业管理", "relatedSubjects": ["ms7", "ms9"], "relatedIndustries": ["i21", "i23", "i27"] },
-  { "id": "u29", "name": "地理科学", "relatedSubjects": ["ms8"], "relatedIndustries": ["i27", "i29", "i30"] },
-  { "id": "u30", "name": "城乡规划", "relatedSubjects": ["ms8"], "relatedIndustries": ["i27", "i29", "i30", "i44"] },
-  { "id": "u31", "name": "人工智能工程", "relatedSubjects": ["ms1", "ms10", "ms14"], "relatedIndustries": ["i1", "i5", "i31", "i32", "i41"] },
-  { "id": "u32", "name": "网络空间安全", "relatedSubjects": ["ms1", "ms2", "ms10"], "relatedIndustries": ["i1", "i2", "i31"] },
-  { "id": "u33", "name": "数字媒体艺术", "relatedSubjects": ["ms11", "ms12"], "relatedIndustries": ["i19", "i33", "i34"] },
-  { "id": "u34", "name": "视觉传达设计", "relatedSubjects": ["ms11"], "relatedIndustries": ["i28", "i33", "i34"] },
-  { "id": "u35", "name": "音乐表演", "relatedSubjects": ["ms12", "ms5"], "relatedIndustries": ["i19", "i35"] },
-  { "id": "u36", "name": "运动康复", "relatedSubjects": ["ms4", "ms13"], "relatedIndustries": ["i4", "i36", "i37"] },
-  { "id": "u37", "name": "社会体育指导与管理", "relatedSubjects": ["ms13"], "relatedIndustries": ["i36", "i37"] },
-  { "id": "u38", "name": "智能制造工程", "relatedSubjects": ["ms2", "ms14"], "relatedIndustries": ["i7", "i11", "i38", "i39"] },
-  { "id": "u39", "name": "机器人工程", "relatedSubjects": ["ms2", "ms10", "ms14"], "relatedIndustries": ["i5", "i31", "i38", "i39"] },
-  { "id": "u40", "name": "应用心理学", "relatedSubjects": ["ms5", "ms15"], "relatedIndustries": ["i19", "i20", "i40"] },
-  { "id": "u41", "name": "临床心理学", "relatedSubjects": ["ms4", "ms15"], "relatedIndustries": ["i4", "i17", "i40"] },
-  { "id": "u42", "name": "职业技术教育", "relatedSubjects": ["ms10", "ms16"], "relatedIndustries": ["i10", "i20", "i41"] },
-  { "id": "u43", "name": "食品科学与工程", "relatedSubjects": ["ms3", "ms4", "ms17"], "relatedIndustries": ["i12", "i16", "i42"] },
-  { "id": "u44", "name": "航空航天工程", "relatedSubjects": ["ms1", "ms2", "ms17"], "relatedIndustries": ["i9", "i43"] },
-  { "id": "u45", "name": "土木工程", "relatedSubjects": ["ms1", "ms8"], "relatedIndustries": ["i29", "i30", "i44"] },
-  { "id": "u46", "name": "会计学", "relatedSubjects": ["ms1", "ms6", "ms16"], "relatedIndustries": ["i3", "i45", "i48"] },
-  { "id": "u47", "name": "学前教育", "relatedSubjects": ["ms5", "ms11"], "relatedIndustries": ["i20", "i46"] },
-  { "id": "u48", "name": "酒店管理", "relatedSubjects": ["ms6", "ms13"], "relatedIndustries": ["i26", "i47"] }
+  {
+    "id": "u1",
+    "name": "计算机科学与技术",
+    "description": "培养计算机系统设计、软件开发与应用能力",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i1", "i2", "i5", "i6", "i31", "i32"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-20K", "mid": "25K-45K", "senior": "50K+"},
+        "secondTier": {"entry": "8K-15K", "mid": "18K-30K", "senior": "35K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "25K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "互联网、人工智能、大数据等领域持续高速发展"
+    },
+    "skills": {
+      "core": ["Python", "Java", "C++", "数据结构", "算法", "操作系统", "数据库"],
+      "soft": ["逻辑思维", "问题解决", "团队协作", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["程序设计基础", "数据结构与算法", "计算机组成原理", "操作系统", "计算机网络", "数据库系统"],
+      "books": ["《算法导论》", "《深入理解计算机系统》", "《代码大全》", "《设计模式》"],
+      "resources": ["LeetCode", "GitHub", "Coursera", "MOOC平台"],
+      "projects": ["个人博客系统", "电商网站", "AI聊天机器人", "数据可视化平台"],
+      "certifications": ["PMP", "软考", "AWS认证", "Google云认证"]
+    }
+  },
+  {
+    "id": "u2",
+    "name": "电子信息工程",
+    "description": "研究电子设备与通信系统的设计与应用",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i1", "i2", "i7", "i8", "i11", "i38"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "45K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "22K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "5G、物联网、半导体行业需求旺盛"
+    },
+    "skills": {
+      "core": ["电路原理", "模拟电子技术", "数字电子技术", "信号处理", "嵌入式系统", "通信原理"],
+      "soft": ["细致严谨", "动手实践", "创新思维"]
+    },
+    "learningPath": {
+      "courses": ["电路分析", "电子技术基础", "信号与系统", "通信原理", "单片机原理", "FPGA设计"],
+      "books": ["《电子技术基础》", "《信号与系统》", "《通信原理》", "《嵌入式系统设计》"],
+      "resources": ["电子发烧友论坛", "EDA工具社区", "TI官方文档"],
+      "projects": ["智能手环", "物联网网关", "无人机控制", "智能家居系统"],
+      "certifications": ["电子工程师职称", "嵌入式认证", "华为HCIA"]
+    }
+  },
+  {
+    "id": "u3",
+    "name": "软件工程",
+    "description": "培养软件系统设计、开发与维护能力",
+    "relatedSubjects": ["ms1", "ms10"],
+    "relatedIndustries": ["i1", "i6", "i32", "i48"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "11K-19K", "mid": "24K-42K", "senior": "48K+"},
+        "secondTier": {"entry": "8K-14K", "mid": "17K-29K", "senior": "34K+"},
+        "thirdTier": {"entry": "5K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "软件开发行业持续扩张，人才需求旺盛"
+    },
+    "skills": {
+      "core": ["Java", "JavaScript", "软件工程", "软件测试", "项目管理", "DevOps"],
+      "soft": ["团队协作", "沟通能力", "文档编写"]
+    },
+    "learningPath": {
+      "courses": ["软件工程导论", "软件设计模式", "软件测试技术", "项目管理", "敏捷开发"],
+      "books": ["《人月神话》", "《代码整洁之道》", "《敏捷软件开发》", "《测试驱动开发》"],
+      "resources": ["Stack Overflow", "DevOps社区", "GitHub"],
+      "projects": ["企业管理系统", "移动App", "微服务架构", "自动化测试框架"],
+      "certifications": ["PMP", "Scrum Master", "ISTQB"]
+    }
+  },
+  {
+    "id": "u4",
+    "name": "人工智能",
+    "description": "研究智能系统的设计与实现，涵盖机器学习、深度学习等领域",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i1", "i5", "i31", "i32"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "15K-25K", "mid": "30K-55K", "senior": "60K+"},
+        "secondTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "45K+"},
+        "thirdTier": {"entry": "6K-12K", "mid": "14K-24K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "爆发式增长",
+      "description": "AI技术广泛应用于各行业，人才缺口巨大"
+    },
+    "skills": {
+      "core": ["Python", "机器学习", "深度学习", "TensorFlow/PyTorch", "数据挖掘", "NLP"],
+      "soft": ["数学思维", "创新能力", "跨学科协作"]
+    },
+    "learningPath": {
+      "courses": ["机器学习", "深度学习", "数据挖掘", "计算机视觉", "自然语言处理"],
+      "books": ["《机器学习》周志华", "《深度学习》Goodfellow", "《统计学习方法》李航"],
+      "resources": ["Kaggle", "GitHub", "Hugging Face", "OpenAI文档"],
+      "projects": ["图像分类系统", "聊天机器人", "推荐系统", "自动驾驶模拟"],
+      "certifications": ["Google机器学习认证", "AWS ML认证", "TensorFlow认证"]
+    }
+  },
+  {
+    "id": "u5",
+    "name": "数据科学",
+    "description": "利用数据分析与挖掘技术解决实际问题",
+    "relatedSubjects": ["ms1", "ms3"],
+    "relatedIndustries": ["i1", "i3", "i7", "i32"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "13K-22K", "mid": "28K-48K", "senior": "55K+"},
+        "secondTier": {"entry": "9K-16K", "mid": "20K-34K", "senior": "40K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "13K-22K", "senior": "28K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "大数据时代，各行业对数据人才需求激增"
+    },
+    "skills": {
+      "core": ["Python", "R", "SQL", "统计学", "数据可视化", "机器学习"],
+      "soft": ["逻辑分析", "商业洞察", "沟通表达"]
+    },
+    "learningPath": {
+      "courses": ["统计学", "数据挖掘", "数据可视化", "大数据技术", "商业分析"],
+      "books": ["《Python数据分析》", "《深入浅出统计学》", "《数据挖掘导论》"],
+      "resources": ["Kaggle", "Tableau社区", "DataCamp"],
+      "projects": ["用户行为分析", "销售预测模型", "舆情分析系统", "数据仪表盘"],
+      "certifications": ["Google数据分析师", "Tableau认证", "CDMP"]
+    }
+  },
+  {
+    "id": "u6",
+    "name": "金融工程",
+    "description": "运用数学和计算机技术解决金融问题",
+    "relatedSubjects": ["ms1", "ms6"],
+    "relatedIndustries": ["i3", "i45"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "18K-30K", "mid": "35K-60K", "senior": "80K+"},
+        "secondTier": {"entry": "12K-22K", "mid": "25K-45K", "senior": "55K+"},
+        "thirdTier": {"entry": "7K-14K", "mid": "16K-28K", "senior": "35K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "金融科技快速发展，量化交易、风险管理需求旺盛"
+    },
+    "skills": {
+      "core": ["数学建模", "金融分析", "编程", "风险管理", "衍生品定价", "量化策略"],
+      "soft": ["严谨细致", "抗压能力", "市场敏感度"]
+    },
+    "learningPath": {
+      "courses": ["金融数学", "随机过程", "金融工程", "风险管理", "量化投资"],
+      "books": ["《期权、期货及其他衍生品》", "《量化投资策略》", "《金融工程原理》"],
+      "resources": ["QuantConnect", "TradingView", "金融建模社区"],
+      "projects": ["量化交易策略", "风险评估模型", "投资组合优化", "金融数据可视化"],
+      "certifications": ["CFA", "FRM", "CQF"]
+    }
+  },
+  {
+    "id": "u7",
+    "name": "生物医学工程",
+    "description": "结合工程技术与医学知识，开发医疗设备与技术",
+    "relatedSubjects": ["ms1", "ms2", "ms4"],
+    "relatedIndustries": ["i4", "i11", "i17"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "45K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "22K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "老龄化加剧，医疗健康产业持续发展"
+    },
+    "skills": {
+      "core": ["生物医学信号处理", "医学影像", "医疗器械设计", "生理建模", "嵌入式系统"],
+      "soft": ["严谨细致", "跨学科沟通", "伦理意识"]
+    },
+    "learningPath": {
+      "courses": ["生理学", "医学影像技术", "生物医学信号处理", "医疗器械设计"],
+      "books": ["《生物医学工程基础》", "《医学影像处理》", "《医疗器械设计》"],
+      "resources": ["IEEE生物医学工程学会", "医疗设备论坛"],
+      "projects": ["心率监测设备", "医学影像分析系统", "康复辅助设备"],
+      "certifications": ["医疗器械工程师", "医学设备认证"]
+    }
+  },
+  {
+    "id": "u8",
+    "name": "临床医学",
+    "description": "培养临床诊断与治疗能力，成为执业医师",
+    "relatedSubjects": ["ms2", "ms3", "ms4"],
+    "relatedIndustries": ["i4", "i17", "i40"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "20K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-20K", "senior": "25K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "稳定",
+      "description": "医疗行业稳定发展，医生社会地位高"
+    },
+    "skills": {
+      "core": ["解剖学", "生理学", "病理学", "诊断学", "内科学", "外科学"],
+      "soft": ["责任心", "沟通能力", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["人体解剖学", "生理学", "药理学", "诊断学", "内科学", "外科学"],
+      "books": ["《系统解剖学》", "《生理学》", "《内科学》", "《外科学》"],
+      "resources": ["医学论坛", "临床指南", "在线医学教育平台"],
+      "projects": ["临床实习", "病例分析", "医学研究"],
+      "certifications": ["执业医师资格证", "住院医师规范化培训"]
+    }
+  },
+  {
+    "id": "u9",
+    "name": "药学",
+    "description": "研究药物研发、生产与合理使用",
+    "relatedSubjects": ["ms3", "ms4"],
+    "relatedIndustries": ["i12", "i16", "i42"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-32K", "senior": "40K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-24K", "senior": "30K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-16K", "senior": "22K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "医药行业持续发展，创新药研发需求增加"
+    },
+    "skills": {
+      "core": ["药物化学", "药剂学", "药理学", "药物分析", "药事管理"],
+      "soft": ["严谨细致", "科学思维", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["药物化学", "药剂学", "药理学", "药物分析", "临床药学"],
+      "books": ["《药物化学》", "《药剂学》", "《药理学》", "《药物分析》"],
+      "resources": ["药智网", "医药魔方", "CFDA官网"],
+      "projects": ["药物合成实验", "制剂研发", "药物质量控制"],
+      "certifications": ["执业药师", "药物分析工程师"]
+    }
+  },
+  {
+    "id": "u10",
+    "name": "建筑学",
+    "description": "培养建筑设计、城市规划与景观设计能力",
+    "relatedSubjects": ["ms2", "ms8", "ms11"],
+    "relatedIndustries": ["i29", "i30", "i44"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "45K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "32K+"},
+        "thirdTier": {"entry": "5K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "房地产行业调整，但城市更新需求持续"
+    },
+    "skills": {
+      "core": ["建筑设计", "建筑史", "结构力学", "CAD/Revit", "城市规划"],
+      "soft": ["空间思维", "审美能力", "创新设计"]
+    },
+    "learningPath": {
+      "courses": ["建筑设计基础", "建筑史", "建筑构造", "城市规划原理", "景观设计"],
+      "books": ["《建筑空间组合论》", "《外部空间设计》", "《走向新建筑》"],
+      "resources": ["ArchDaily", "谷德设计网", "建筑学报"],
+      "projects": ["建筑设计方案", "城市规划设计", "景观设计"],
+      "certifications": ["一级注册建筑师", "二级注册建筑师"]
+    }
+  },
+  {
+    "id": "u11",
+    "name": "土木工程",
+    "description": "培养土木工程设计、施工与管理能力",
+    "relatedSubjects": ["ms1", "ms2", "ms8"],
+    "relatedIndustries": ["i30", "i44"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "基础设施建设持续，交通、水利工程需求稳定"
+    },
+    "skills": {
+      "core": ["结构力学", "土力学", "混凝土结构", "施工技术", "工程管理"],
+      "soft": ["责任心", "团队协作", "现场协调"]
+    },
+    "learningPath": {
+      "courses": ["理论力学", "材料力学", "结构力学", "混凝土结构", "施工组织"],
+      "books": ["《结构力学》", "《混凝土结构设计原理》", "《土力学》"],
+      "resources": ["土木工程网", "建筑论坛", "工程管理平台"],
+      "projects": ["结构设计", "施工组织设计", "工程造价"],
+      "certifications": ["一级建造师", "二级建造师", "注册结构工程师"]
+    }
+  },
+  {
+    "id": "u12",
+    "name": "机械工程",
+    "description": "培养机械设计、制造与自动化能力",
+    "relatedSubjects": ["ms1", "ms2", "ms14"],
+    "relatedIndustries": ["i7", "i38", "i39"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-35K", "senior": "42K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-17K", "senior": "22K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "智能制造、工业机器人行业快速发展"
+    },
+    "skills": {
+      "core": ["机械设计", "材料力学", "CAD/CAM", "数控技术", "工业机器人"],
+      "soft": ["空间思维", "动手能力", "创新设计"]
+    },
+    "learningPath": {
+      "courses": ["机械原理", "机械设计", "材料力学", "CAD/CAM", "数控技术"],
+      "books": ["《机械设计手册》", "《材料力学》", "《数控技术》"],
+      "resources": ["机械社区", "SolidWorks论坛", "智能制造平台"],
+      "projects": ["机械结构设计", "模具设计", "机器人手臂"],
+      "certifications": ["机械工程师", "数控编程认证", "SolidWorks认证"]
+    }
+  },
+  {
+    "id": "u13",
+    "name": "环境工程",
+    "description": "培养环境保护与治理能力",
+    "relatedSubjects": ["ms3", "ms8"],
+    "relatedIndustries": ["i14", "i15"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "环保政策收紧，绿色发展需求增加"
+    },
+    "skills": {
+      "core": ["环境监测", "水污染控制", "大气污染控制", "环境影响评价", "环保设备"],
+      "soft": ["环保意识", "数据分析", "政策理解"]
+    },
+    "learningPath": {
+      "courses": ["环境化学", "环境监测", "水污染控制工程", "大气污染控制", "环境管理"],
+      "books": ["《环境工程导论》", "《水污染控制工程》", "《大气污染控制工程》"],
+      "resources": ["中国环境网", "环保在线", "环境工程论坛"],
+      "projects": ["环境影响评价", "污水处理工艺设计", "废气处理方案"],
+      "certifications": ["环保工程师", "环境影响评价工程师"]
+    }
+  },
+  {
+    "id": "u14",
+    "name": "市场营销",
+    "description": "培养市场分析与营销策划能力",
+    "relatedSubjects": ["ms5", "ms6"],
+    "relatedIndustries": ["i19", "i28", "i25"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "数字营销、电商行业快速发展"
+    },
+    "skills": {
+      "core": ["市场调研", "品牌管理", "数字营销", "广告策划", "数据分析"],
+      "soft": ["沟通能力", "创意能力", "市场敏感度"]
+    },
+    "learningPath": {
+      "courses": ["市场营销学", "消费者行为学", "市场调研", "广告学", "数字营销"],
+      "books": ["《营销管理》", "《定位》", "《影响力》", "《流量池》"],
+      "resources": ["36氪", "虎嗅", "营销案例库"],
+      "projects": ["市场调研分析", "品牌推广方案", "电商运营策划"],
+      "certifications": ["Google Analytics认证", "百度营销认证", "营销经理认证"]
+    }
+  },
+  {
+    "id": "u15",
+    "name": "会计学",
+    "description": "培养会计核算与财务管理能力",
+    "relatedSubjects": ["ms1", "ms6"],
+    "relatedIndustries": ["i45", "i3"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "企业财务管理需求持续，注册会计师认可度高"
+    },
+    "skills": {
+      "core": ["会计核算", "财务管理", "审计", "税法", "财务分析"],
+      "soft": ["细致严谨", "诚信意识", "法规遵守"]
+    },
+    "learningPath": {
+      "courses": ["基础会计", "中级财务会计", "财务管理", "审计", "税法"],
+      "books": ["《会计学》", "《中级财务会计》", "《财务管理》"],
+      "resources": ["会计视野", "税务总局官网", "CPA考试网"],
+      "projects": ["企业财务报表分析", "税务筹划", "审计报告"],
+      "certifications": ["CPA", "ACCA", "CMA"]
+    }
+  },
+  {
+    "id": "u16",
+    "name": "法学",
+    "description": "培养法律专业知识与实践能力",
+    "relatedSubjects": ["ms5", "ms7", "ms9"],
+    "relatedIndustries": ["i21", "i23"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "20K-35K", "senior": "45K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "14K-25K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-17K", "senior": "22K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "法律服务业稳定发展，专业化需求增加"
+    },
+    "skills": {
+      "core": ["民法", "刑法", "诉讼法", "商法", "法律实务"],
+      "soft": ["逻辑思维", "口头表达", "文书写作"]
+    },
+    "learningPath": {
+      "courses": ["法理学", "民法", "刑法", "民事诉讼法", "刑事诉讼法"],
+      "books": ["《民法总则》", "《刑法学》", "《民事诉讼法》", "《商法》"],
+      "resources": ["中国裁判文书网", "北大法宝", "法律图书馆"],
+      "projects": ["法律意见书", "模拟法庭", "法律调研"],
+      "certifications": ["法律职业资格证", "律师执业证"]
+    }
+  },
+  {
+    "id": "u17",
+    "name": "新闻传播学",
+    "description": "培养新闻采写与传播能力",
+    "relatedSubjects": ["ms5", "ms6"],
+    "relatedIndustries": ["i19", "i22"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "新媒体发展迅速，内容创作需求持续"
+    },
+    "skills": {
+      "core": ["新闻采写", "编辑出版", "新媒体运营", "摄影摄像", "传播理论"],
+      "soft": ["文字功底", "创意能力", "社会洞察力"]
+    },
+    "learningPath": {
+      "courses": ["新闻学概论", "新闻采访写作", "编辑学", "新媒体传播", "新闻摄影"],
+      "books": ["《新闻学概论》", "《新闻写作教程》", "《传播学教程》"],
+      "resources": ["人民日报", "新华社", "澎湃新闻"],
+      "projects": ["新闻报道", "新媒体运营", "纪录片制作"],
+      "certifications": ["新闻记者证", "编辑记者资格证"]
+    }
+  },
+  {
+    "id": "u18",
+    "name": "教育学",
+    "description": "培养教育理论与教学实践能力",
+    "relatedSubjects": ["ms5", "ms16"],
+    "relatedIndustries": ["i20", "i41", "i46"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "secondTier": {"entry": "5K-9K", "mid": "11K-19K", "senior": "24K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "教育行业稳定，职业教育和学前教育需求增长"
+    },
+    "skills": {
+      "core": ["教育心理学", "课程设计", "教学方法", "教育管理", "学生发展"],
+      "soft": ["耐心", "沟通能力", "爱心"]
+    },
+    "learningPath": {
+      "courses": ["教育学原理", "教育心理学", "课程与教学论", "教育管理学"],
+      "books": ["《教育学》", "《教育心理学》", "《课程与教学论》"],
+      "resources": ["中国教育在线", "教师招聘网", "教育研究"],
+      "projects": ["教学设计", "教学实践", "教育调研"],
+      "certifications": ["教师资格证", "普通话等级证"]
+    }
+  },
+  {
+    "id": "u19",
+    "name": "护理学",
+    "description": "培养临床护理与健康管理能力",
+    "relatedSubjects": ["ms4", "ms13"],
+    "relatedIndustries": ["i4", "i18", "i37"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-12K", "mid": "14K-24K", "senior": "30K+"},
+        "secondTier": {"entry": "5K-9K", "mid": "11K-18K", "senior": "22K+"},
+        "thirdTier": {"entry": "4K-6K", "mid": "8K-13K", "senior": "17K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "老龄化加剧，护理人才需求持续增加"
+    },
+    "skills": {
+      "core": ["护理学基础", "内科护理学", "外科护理学", "急救护理", "护理管理"],
+      "soft": ["爱心", "耐心", "责任心", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["护理学导论", "基础护理学", "内科护理学", "外科护理学", "急救护理学"],
+      "books": ["《护理学基础》", "《内科护理学》", "《外科护理学》"],
+      "resources": ["护理界", "中国护理管理", "护理研究"],
+      "projects": ["护理实践", "护理查房", "健康教育"],
+      "certifications": ["护士执业资格证", "护师职称"]
+    }
+  },
+  {
+    "id": "u20",
+    "name": "心理学",
+    "description": "研究心理现象与行为规律",
+    "relatedSubjects": ["ms4", "ms15"],
+    "relatedIndustries": ["i40", "i20"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "心理健康意识提升，心理咨询需求增加"
+    },
+    "skills": {
+      "core": ["普通心理学", "发展心理学", "临床心理学", "心理测量", "心理咨询"],
+      "soft": ["同理心", "倾听能力", "保密意识"]
+    },
+    "learningPath": {
+      "courses": ["普通心理学", "发展心理学", "认知心理学", "临床心理学", "心理咨询"],
+      "books": ["《普通心理学》", "《发展心理学》", "《心理咨询与治疗》"],
+      "resources": ["中国心理学会", "壹心理", "简单心理"],
+      "projects": ["心理测评", "心理咨询实践", "心理健康科普"],
+      "certifications": ["心理咨询师", "心理治疗师"]
+    }
+  },
+  {
+    "id": "u21",
+    "name": "数字媒体艺术",
+    "description": "培养数字内容创作与设计能力",
+    "relatedSubjects": ["ms11", "ms12"],
+    "relatedIndustries": ["i33", "i34", "i19"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "游戏、短视频、直播行业快速发展"
+    },
+    "skills": {
+      "core": ["Photoshop", "Illustrator", "After Effects", "3D建模", "交互设计"],
+      "soft": ["审美能力", "创意能力", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["数字图像处理", "动画原理", "交互设计", "三维建模", "视频编辑"],
+      "books": ["《写给大家看的设计书》", "《配色设计原理》", "《交互设计精髓》"],
+      "resources": ["站酷", "花瓣网", "Dribbble", "Behance"],
+      "projects": ["UI设计", "动画短片", "游戏角色设计", "短视频制作"],
+      "certifications": ["Adobe认证", "UI设计认证"]
+    }
+  },
+  {
+    "id": "u22",
+    "name": "人力资源管理",
+    "description": "培养人力资源规划与管理能力",
+    "relatedSubjects": ["ms5", "ms9"],
+    "relatedIndustries": ["i23", "i1"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "企业HR管理需求持续，人力资源数字化转型加速"
+    },
+    "skills": {
+      "core": ["人力资源规划", "招聘与配置", "培训与开发", "绩效管理", "薪酬管理"],
+      "soft": ["沟通能力", "协调能力", "公正客观"]
+    },
+    "learningPath": {
+      "courses": ["人力资源管理", "组织行为学", "劳动经济学", "劳动关系", "薪酬管理"],
+      "books": ["《人力资源管理》", "《组织行为学》", "《绩效管理》"],
+      "resources": ["HRoot", "三茅人力资源网", "智联招聘"],
+      "projects": ["招聘方案设计", "绩效体系设计", "员工培训计划"],
+      "certifications": ["人力资源管理师", "企业人力资源管理师"]
+    }
+  },
+  {
+    "id": "u23",
+    "name": "国际经济与贸易",
+    "description": "培养国际贸易理论与实务能力",
+    "relatedSubjects": ["ms6"],
+    "relatedIndustries": ["i24", "i25"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "全球化深入，跨境电商快速发展"
+    },
+    "skills": {
+      "core": ["国际贸易理论", "国际贸易实务", "国际市场营销", "报关报检", "商务英语"],
+      "soft": ["跨文化沟通", "谈判能力", "市场敏感度"]
+    },
+    "learningPath": {
+      "courses": ["国际贸易", "国际市场营销", "国际贸易实务", "国际结算", "外贸函电"],
+      "books": ["《国际贸易》", "《国际贸易实务》", "《国际市场营销》"],
+      "resources": ["国际贸易中心", "海关总署", "跨境电商平台"],
+      "projects": ["外贸业务流程设计", "跨境电商运营", "国际市场分析"],
+      "certifications": ["报关员", "报检员", "国际贸易单证员"]
+    }
+  },
+  {
+    "id": "u24",
+    "name": "物流管理",
+    "description": "培养物流系统规划与运营能力",
+    "relatedSubjects": ["ms1", "ms6"],
+    "relatedIndustries": ["i48"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "快速增长",
+      "description": "电商发展带动物流行业快速扩张"
+    },
+    "skills": {
+      "core": ["物流管理", "供应链管理", "仓储管理", "运输管理", "物流信息技术"],
+      "soft": ["统筹能力", "数据分析", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["物流学", "供应链管理", "仓储管理", "运输管理", "物流系统规划"],
+      "books": ["《物流管理》", "《供应链管理》", "《物流系统分析》"],
+      "resources": ["中国物流与采购联合会", "物流巴巴", "物流资讯平台"],
+      "projects": ["物流系统设计", "仓储优化方案", "配送路线规划"],
+      "certifications": ["物流师", "供应链管理师", "仓储管理认证"]
+    }
+  },
+  {
+    "id": "u25",
+    "name": "产品设计",
+    "description": "培养产品创新设计能力",
+    "relatedSubjects": ["ms11", "ms14"],
+    "relatedIndustries": ["i1", "i33"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "消费升级推动产品创新，设计需求增加"
+    },
+    "skills": {
+      "core": ["产品设计", "工业设计", "用户研究", "原型设计", "设计软件"],
+      "soft": ["创新思维", "用户思维", "审美能力"]
+    },
+    "learningPath": {
+      "courses": ["设计基础", "工业设计史", "产品设计", "人机工程学", "设计心理学"],
+      "books": ["《设计心理学》", "《人机工程学》", "《产品设计方法学》"],
+      "resources": ["设计邦", "Core77", "站酷"],
+      "projects": ["产品设计方案", "用户研究报告", "产品原型"],
+      "certifications": ["工业设计师", "产品设计师"]
+    }
+  },
+  {
+    "id": "u26",
+    "name": "网络工程",
+    "description": "培养计算机网络设计、维护与安全能力",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i1", "i31", "i32"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "46K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "5G和云计算推动网络技术持续发展"
+    },
+    "skills": {
+      "core": ["计算机网络", "网络安全", "TCP/IP", "路由交换", "网络管理"],
+      "soft": ["细致严谨", "问题解决", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["计算机网络", "网络安全", "TCP/IP协议", "路由与交换", "网络管理"],
+      "books": ["《计算机网络：自顶向下方法》", "《TCP/IP详解》", "《网络安全基础》"],
+      "resources": ["Cisco官网", "网络论坛", "技术博客"],
+      "projects": ["网络拓扑设计", "网络安全配置", "网络性能优化"],
+      "certifications": ["CCNA", "CCNP", "CISSP"]
+    }
+  },
+  {
+    "id": "u27",
+    "name": "信息安全",
+    "description": "培养信息系统安全防护与管理能力",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i31", "i1", "i3"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "数字化转型加速，网络安全需求激增"
+    },
+    "skills": {
+      "core": ["网络安全", "渗透测试", "安全运维", "加密技术", "安全审计"],
+      "soft": ["细致严谨", "持续学习", "问题解决"]
+    },
+    "learningPath": {
+      "courses": ["网络安全", "渗透测试", "安全运维", "加密技术", "安全审计"],
+      "books": ["《网络安全基础》", "《渗透测试实战》", "《加密与解密》"],
+      "resources": ["安全社区", "CTF平台", "安全厂商文档"],
+      "projects": ["安全审计", "渗透测试", "安全加固"],
+      "certifications": ["CEH", "CISSP", "CISP"]
+    }
+  },
+  {
+    "id": "u28",
+    "name": "物联网工程",
+    "description": "培养物联网系统设计与应用能力",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i8", "i1", "i38"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "万物互联时代，物联网应用场景广泛"
+    },
+    "skills": {
+      "core": ["嵌入式开发", "传感器技术", "通信协议", "云平台", "物联网安全"],
+      "soft": ["系统思维", "创新应用", "跨领域协作"]
+    },
+    "learningPath": {
+      "courses": ["物联网导论", "嵌入式系统", "传感器网络", "云平台开发", "物联网安全"],
+      "books": ["《物联网技术》", "《嵌入式系统设计》", "《传感器网络》"],
+      "resources": ["物联网论坛", "开源硬件社区", "云平台文档"],
+      "projects": ["智能家居", "智能穿戴", "工业物联网"],
+      "certifications": ["物联网工程师", "嵌入式认证", "云平台认证"]
+    }
+  },
+  {
+    "id": "u29",
+    "name": "软件工程（嵌入式方向）",
+    "description": "培养嵌入式软件系统开发能力",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i8", "i11", "i38"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "11K-20K", "mid": "25K-42K", "senior": "50K+"},
+        "secondTier": {"entry": "8K-15K", "mid": "19K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "13K-21K", "senior": "28K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "智能硬件和物联网发展，嵌入式人才需求旺盛"
+    },
+    "skills": {
+      "core": ["C/C++", "嵌入式系统", "RTOS", "驱动开发", "调试技术"],
+      "soft": ["细致严谨", "动手能力", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["C/C++编程", "嵌入式系统", "RTOS", "驱动开发", "调试技术"],
+      "books": ["《嵌入式系统设计》", "《C++ Primer》", "《RTOS原理》"],
+      "resources": ["嵌入式论坛", "开源社区", "厂商文档"],
+      "projects": ["嵌入式设备开发", "驱动程序", "固件升级"],
+      "certifications": ["嵌入式认证", "ARM认证"]
+    }
+  },
+  {
+    "id": "u30",
+    "name": "城乡规划",
+    "description": "培养城乡规划设计与管理能力",
+    "relatedSubjects": ["ms7", "ms8"],
+    "relatedIndustries": ["i29", "i30"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "乡村振兴和城市更新推动规划需求"
+    },
+    "skills": {
+      "core": ["城乡规划", "GIS技术", "空间设计", "政策分析", "规划法规"],
+      "soft": ["空间思维", "审美能力", "公共意识"]
+    },
+    "learningPath": {
+      "courses": ["城乡规划原理", "城市设计", "GIS技术", "规划法规", "区域规划"],
+      "books": ["《城乡规划原理》", "《城市设计》", "《GIS应用》"],
+      "resources": ["规划机构", "GIS社区", "行业报告"],
+      "projects": ["城乡规划设计", "GIS分析", "规划方案"],
+      "certifications": ["注册城乡规划师", "GIS认证"]
+    }
+  },
+  {
+    "id": "u31",
+    "name": "工业工程",
+    "description": "培养工业系统优化与管理能力",
+    "relatedSubjects": ["ms1", "ms2"],
+    "relatedIndustries": ["i38", "i39"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "智能制造推动工业工程发展"
+    },
+    "skills": {
+      "core": ["工业工程", "生产管理", "质量控制", "供应链管理", "精益生产"],
+      "soft": ["系统思维", "数据分析", "问题解决"]
+    },
+    "learningPath": {
+      "courses": ["工业工程基础", "生产管理", "质量控制", "供应链管理", "精益生产"],
+      "books": ["《工业工程导论》", "《生产与运作管理》", "《精益思想》"],
+      "resources": ["工业工程论坛", "行业报告", "管理咨询"],
+      "projects": ["生产线优化", "质量改进", "流程再造"],
+      "certifications": ["工业工程师", "六西格玛认证"]
+    }
+  },
+  {
+    "id": "u32",
+    "name": "统计学",
+    "description": "培养统计分析与数据处理能力",
+    "relatedSubjects": ["ms1"],
+    "relatedIndustries": ["i5", "i3", "i32"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "46K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "大数据时代，统计人才需求激增"
+    },
+    "skills": {
+      "core": ["概率论", "数理统计", "回归分析", "时间序列", "统计软件"],
+      "soft": ["逻辑思维", "数据分析", "严谨细致"]
+    },
+    "learningPath": {
+      "courses": ["概率论", "数理统计", "回归分析", "时间序列分析", "统计软件"],
+      "books": ["《概率论与数理统计》", "《统计学》", "《回归分析》"],
+      "resources": ["统计论坛", "数据分析社区", "学术期刊"],
+      "projects": ["统计建模", "数据分析", "预测分析"],
+      "certifications": ["统计师", "数据分析师"]
+    }
+  },
+  {
+    "id": "u33",
+    "name": "动画设计",
+    "description": "培养动画创作与视觉效果设计能力",
+    "relatedSubjects": ["ms11", "ms12"],
+    "relatedIndustries": ["i34", "i33"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "游戏和影视行业推动动画需求增加"
+    },
+    "skills": {
+      "core": ["动画原理", "角色设计", "场景设计", "后期合成", "动画软件"],
+      "soft": ["创意能力", "审美能力", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["动画原理", "角色设计", "场景设计", "后期合成", "动画软件"],
+      "books": ["《动画师生存手册》", "《角色设计》", "《动画场景设计》"],
+      "resources": ["动画论坛", "创作社区", "行业报告"],
+      "projects": ["动画短片", "角色动画", "特效制作"],
+      "certifications": ["动画设计师", "Adobe认证"]
+    }
+  },
+  {
+    "id": "u34",
+    "name": "影视制作",
+    "description": "培养影视编导与制作能力",
+    "relatedSubjects": ["ms5", "ms11"],
+    "relatedIndustries": ["i19", "i34"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "18K-32K", "senior": "42K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "13K-23K", "senior": "29K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-16K", "senior": "21K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "短视频和直播推动影视制作需求"
+    },
+    "skills": {
+      "core": ["影视编导", "摄像技术", "视频剪辑", "后期特效", "音频制作"],
+      "soft": ["创意能力", "艺术素养", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["影视编导", "摄像技术", "视频剪辑", "后期特效", "音频制作"],
+      "books": ["《影视编导基础》", "《电影语言的语法》", "《剪辑的语法》"],
+      "resources": ["影视平台", "创作社区", "行业报告"],
+      "projects": ["短片制作", "纪录片", "短视频"],
+      "certifications": ["影视制作师", "Adobe认证"]
+    }
+  },
+  {
+    "id": "u35",
+    "name": "音乐表演",
+    "description": "培养音乐表演与创作能力",
+    "relatedSubjects": ["ms12"],
+    "relatedIndustries": ["i35"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "18K-32K", "senior": "42K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "音乐产业多元化发展"
+    },
+    "skills": {
+      "core": ["音乐表演", "音乐理论", "视唱练耳", "即兴演奏", "音乐制作"],
+      "soft": ["艺术素养", "创造力", "舞台表现力"]
+    },
+    "learningPath": {
+      "courses": ["音乐理论", "视唱练耳", "专业演奏", "即兴演奏", "音乐制作"],
+      "books": ["《音乐理论基础》", "《视唱练耳》", "《音乐制作指南》"],
+      "resources": ["音乐平台", "演出机构", "音乐社区"],
+      "projects": ["音乐表演", "音乐创作", "录音工程"],
+      "certifications": ["音乐考级", "录音师认证"]
+    }
+  },
+  {
+    "id": "u36",
+    "name": "运动康复",
+    "description": "培养运动康复与健康管理能力",
+    "relatedSubjects": ["ms4", "ms13"],
+    "relatedIndustries": ["i37"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "健康意识提升，运动康复需求增加"
+    },
+    "skills": {
+      "core": ["运动解剖", "运动生理", "康复治疗", "运动训练", "健康评估"],
+      "soft": ["同理心", "耐心", "服务意识"]
+    },
+    "learningPath": {
+      "courses": ["运动解剖学", "运动生理学", "康复治疗技术", "运动训练学", "健康评估"],
+      "books": ["《运动解剖学》", "《运动生理学》", "《康复治疗技术》"],
+      "resources": ["康复机构", "健身平台", "行业报告"],
+      "projects": ["康复计划", "运动指导", "健康管理"],
+      "certifications": ["康复治疗师", "运动康复师"]
+    }
+  },
+  {
+    "id": "u37",
+    "name": "体育教育",
+    "description": "培养体育教学与运动训练能力",
+    "relatedSubjects": ["ms13"],
+    "relatedIndustries": ["i20", "i36"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "secondTier": {"entry": "5K-9K", "mid": "11K-19K", "senior": "24K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "体育教育和全民健身需求稳定"
+    },
+    "skills": {
+      "core": ["体育教学", "运动训练", "体育理论", "健康指导", "赛事组织"],
+      "soft": ["耐心", "沟通能力", "体育热情"]
+    },
+    "learningPath": {
+      "courses": ["体育教学法", "运动训练学", "体育理论", "健康指导", "赛事组织"],
+      "books": ["《体育教学论》", "《运动训练学》", "《体育概论》"],
+      "resources": ["体育协会", "教育平台", "行业报告"],
+      "projects": ["体育教学", "运动训练", "赛事组织"],
+      "certifications": ["教师资格证", "社会体育指导员"]
+    }
+  },
+  {
+    "id": "u38",
+    "name": "智能制造工程",
+    "description": "培养智能制造技术与应用能力",
+    "relatedSubjects": ["ms1", "ms2", "ms14"],
+    "relatedIndustries": ["i38", "i39", "i7"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "11K-20K", "mid": "25K-42K", "senior": "50K+"},
+        "secondTier": {"entry": "8K-15K", "mid": "19K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "13K-21K", "senior": "28K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "制造业升级推动智能制造人才需求"
+    },
+    "skills": {
+      "core": ["智能制造", "工业机器人", "PLC编程", "自动化控制", "智能检测"],
+      "soft": ["系统思维", "动手能力", "创新设计"]
+    },
+    "learningPath": {
+      "courses": ["智能制造技术", "工业机器人", "PLC编程", "自动化控制", "智能检测"],
+      "books": ["《智能制造技术》", "《工业机器人技术》", "《PLC编程》"],
+      "resources": ["智能制造平台", "工控社区", "行业报告"],
+      "projects": ["自动化生产线", "机器人应用", "智能工厂"],
+      "certifications": ["自动化工程师", "机器人认证"]
+    }
+  },
+  {
+    "id": "u39",
+    "name": "机器人工程",
+    "description": "培养机器人研发与应用能力",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedIndustries": ["i39", "i38"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "工业自动化加速，机器人需求激增"
+    },
+    "skills": {
+      "core": ["机器人技术", "运动控制", "机器视觉", "编程", "传感器技术"],
+      "soft": ["系统思维", "问题解决", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["机器人技术", "运动控制", "机器视觉", "ROS", "传感器技术"],
+      "books": ["《机器人学导论》", "《ROS机器人编程》", "《机器视觉》"],
+      "resources": ["ROS社区", "机器人论坛", "厂商文档"],
+      "projects": ["机器人开发", "运动控制", "视觉识别"],
+      "certifications": ["机器人工程师", "ROS认证"]
+    }
+  },
+  {
+    "id": "u40",
+    "name": "数据工程",
+    "description": "培养大数据处理与数据架构能力",
+    "relatedSubjects": ["ms1", "ms10"],
+    "relatedIndustries": ["i32", "i5"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "大数据时代，数据工程人才需求旺盛"
+    },
+    "skills": {
+      "core": ["大数据技术", "分布式系统", "数据仓库", "ETL", "数据治理"],
+      "soft": ["系统思维", "问题解决", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["大数据技术", "分布式系统", "数据仓库", "ETL", "数据治理"],
+      "books": ["《大数据技术原理与应用》", "《数据仓库》", "《分布式系统》"],
+      "resources": ["Hadoop社区", "Spark社区", "云厂商文档"],
+      "projects": ["数据仓库建设", "ETL开发", "大数据分析"],
+      "certifications": ["CDMP", "大数据工程师", "云平台认证"]
+    }
+  }
 ]

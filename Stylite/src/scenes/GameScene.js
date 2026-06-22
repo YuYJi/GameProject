@@ -1,7 +1,8 @@
 import { Player } from '../entities/Player.js';
 import { Enemy } from '../entities/Enemy.js';
+import { Orb } from '../entities/Orb.js';
 import { Firedan, Explosion, DamageNumber, Firerain, WaterShield, spawnHitParticles, spawnDeathParticles, spawnBreathParticles } from '../systems/SkillSystem.js';
-import { GAME_CONFIG, ENEMY_CONFIG, FIREDAN_CONFIG, BREATH_CONFIG, FIRERAIN_CONFIG, SLASH_CONFIG, WATERSHIELD_CONFIG } from '../config/gameConfig.js';
+import { GAME_CONFIG, ENEMY_CONFIG, FIREDAN_CONFIG, BREATH_CONFIG, FIRERAIN_CONFIG, SLASH_CONFIG, WATERSHIELD_CONFIG, UI_CONFIG } from '../config/gameConfig.js';
 
 export class GameScene {
   constructor(canvas) {
@@ -24,7 +25,11 @@ export class GameScene {
     this.particles = [];
     this.damageNumbers = [];
     this.firerains = [];
+    this.orbs = [];
     this.breathParticles = [];
+
+    // 珠子拾取计数
+    this.orbCount = 0;
 
     // 火弹冷却
     this.skillCooldownTimer = 0;
@@ -66,6 +71,7 @@ export class GameScene {
     this.waterShieldStatusEl = document.getElementById('waterShieldStatus');
     this.enemyCountEl = document.getElementById('enemyCount');
     this.killCountEl = document.getElementById('killCount');
+    this.orbCountEl = document.getElementById('orbCount');
 
     // 初始化敌人
     this.initEnemies(6);
@@ -466,6 +472,20 @@ export class GameScene {
     for (const enemy of this.enemies) {
       enemy.update(this.player, dt);
     }
+
+    // 敌人死亡掉落珠子
+    for (const enemy of this.enemies) {
+      if (!enemy.alive && enemy.justDied) {
+        enemy.justDied = false;
+        // 掉落1-2个珠子
+        const orbCount = Math.floor(Math.random() * 2) + 1;
+        for (let i = 0; i < orbCount; i++) {
+          const offsetX = (Math.random() - 0.5) * 20;
+          const offsetY = (Math.random() - 0.5) * 20;
+          this.orbs.push(new Orb(enemy.x + offsetX, enemy.y + offsetY));
+        }
+      }
+    }
     this.enemies = this.enemies.filter(e => e.alive);
 
     // 更新火球
@@ -485,6 +505,41 @@ export class GameScene {
       fr.update(this.enemies, this.particles, this.damageNumbers, this.gameTime, dt);
     }
     this.firerains = this.firerains.filter(fr => fr.alive);
+
+    // 更新珠子
+    for (const orb of this.orbs) {
+      orb.update(dt);
+    }
+    this.orbs = this.orbs.filter(orb => orb.alive);
+
+    // 珠子拾取检测
+    const pickupRadius = 25;
+    for (let i = this.orbs.length - 1; i >= 0; i--) {
+      const orb = this.orbs[i];
+      const dist = Math.hypot(orb.x - this.player.x, orb.y - this.player.y);
+      if (dist < pickupRadius) {
+        orb.alive = false;
+        this.orbCount++;
+        if (this.orbCountEl) {
+          this.orbCountEl.textContent = this.orbCount;
+        }
+        // 拾取特效
+        for (let j = 0; j < 8; j++) {
+          const angle = (j / 8) * Math.PI * 2;
+          this.particles.push({
+            x: orb.x,
+            y: orb.y,
+            vx: Math.cos(angle) * 2,
+            vy: Math.sin(angle) * 2,
+            size: 3,
+            color: '#ffffff',
+            life: 10,
+            maxLife: 10,
+            gravity: 0,
+          });
+        }
+      }
+    }
 
     // 更新粒子
     for (const p of this.particles) {
@@ -586,6 +641,11 @@ export class GameScene {
       fr.draw(this.ctx);
     }
 
+    // 绘制珠子
+    for (const orb of this.orbs) {
+      orb.draw(this.ctx);
+    }
+
     // 绘制粒子
     for (const p of this.particles) {
       const alpha = p.life / p.maxLife;
@@ -623,6 +683,9 @@ export class GameScene {
 
     // 绘制底部信息
     this.drawBottomInfo();
+
+    // 绘制战争迷雾
+    this.drawFog();
 
     this.ctx.restore();
   }
@@ -724,6 +787,33 @@ export class GameScene {
     this.drawPixelRect(this.ctx, 10, GAME_CONFIG.height - 22, 200, 16, '#1a1a2e');
     this.ctx.fillStyle = '#8899bb';
     this.ctx.fillText('🔥1火弹 ⚔左键斩击 🐉2龙熄 · WASD', 16, GAME_CONFIG.height - 11);
+  }
+
+  drawFog() {
+    // 计算屏幕震动后的角色位置
+    const shakeX = this.screenShake > 0 ? (Math.random() - 0.5) * this.screenShake * 1.2 : 0;
+    const shakeY = this.screenShake > 0 ? (Math.random() - 0.5) * this.screenShake * 1.2 : 0;
+
+    // 角色在画布上的位置
+    const px = this.player.x + shakeX;
+    const py = this.player.y + shakeY;
+
+    // 创建径向渐变迷雾
+    const gradient = this.ctx.createRadialGradient(
+      px, py, UI_CONFIG.fogRadius,
+      px, py, UI_CONFIG.fogEdgeRadius
+    );
+
+    // 从清晰到完全黑暗
+    gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(0.3, 'rgba(0, 0, 0, 0.1)');
+    gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.3)');
+    gradient.addColorStop(0.7, 'rgba(0, 0, 0, 0.6)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.85)');
+
+    // 绘制迷雾层
+    this.ctx.fillStyle = gradient;
+    this.ctx.fillRect(0, 0, GAME_CONFIG.width, GAME_CONFIG.height);
   }
 
   drawPixelRect(ctx, x, y, w, h, color) {

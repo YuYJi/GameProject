@@ -80,6 +80,8 @@ export const WATERSHIELD_CONFIG = {
 
 // UI配置
 export const UI_CONFIG = {
+  fogRadius: 150, // 清晰视野半径
+  fogEdgeRadius: 300, // 迷雾边缘半径（完全黑暗）
   healthBarWidth: 200,
   healthBarHeight: 20,
   expBarWidth: 200,

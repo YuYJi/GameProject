@@ -33,6 +33,7 @@ export class Enemy {
     }
     if (this.hp <= 0) {
       this.hp = 0;
+      this.justDied = true;
       this.alive = false;
     }
   }
@@ -47,6 +48,7 @@ export class Enemy {
       this.hp -= burnTick;
       if (this.hp <= 0) {
         this.hp = 0;
+        this.justDied = true;
         this.alive = false;
         return;
       }

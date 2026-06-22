@@ -1,50 +1,1346 @@
 [
-  { "id": "i1", "name": "互联网科技", "relatedSubjects": ["ms1", "ms2"], "relatedMajors": ["u1", "u2", "u3", "u7"] },
-  { "id": "i2", "name": "电子通信", "relatedSubjects": ["ms1", "ms2"], "relatedMajors": ["u1", "u2"] },
-  { "id": "i3", "name": "金融科技", "relatedSubjects": ["ms1", "ms3", "ms6", "ms16"], "relatedMajors": ["u3", "u5", "u6", "u7", "u46"] },
-  { "id": "i4", "name": "医疗健康", "relatedSubjects": ["ms1", "ms4", "ms15"], "relatedMajors": ["u4", "u15", "u17", "u41"] },
-  { "id": "i5", "name": "人工智能", "relatedSubjects": ["ms1"], "relatedMajors": ["u1", "u7"] },
-  { "id": "i6", "name": "软件开发", "relatedSubjects": ["ms1"], "relatedMajors": ["u1"] },
-  { "id": "i7", "name": "半导体芯片", "relatedSubjects": ["ms2", "ms3"], "relatedMajors": ["u2", "u9", "u13"] },
-  { "id": "i8", "name": "物联网", "relatedSubjects": ["ms1", "ms2"], "relatedMajors": ["u2"] },
-  { "id": "i9", "name": "科学研究", "relatedSubjects": ["ms1", "ms2", "ms17"], "relatedMajors": ["u3", "u5", "u8", "u44"] },
-  { "id": "i10", "name": "高等教育", "relatedSubjects": ["ms1", "ms2", "ms10", "ms16"], "relatedMajors": ["u3", "u5", "u8", "u42"] },
-  { "id": "i11", "name": "医疗器械", "relatedSubjects": ["ms1", "ms2", "ms4"], "relatedMajors": ["u4", "u9", "u10"] },
-  { "id": "i12", "name": "生物制药", "relatedSubjects": ["ms3", "ms4", "ms17"], "relatedMajors": ["u4", "u11", "u13", "u43"] },
-  { "id": "i13", "name": "化工新材料", "relatedSubjects": ["ms3", "ms4"], "relatedMajors": ["u11", "u12", "u16"] },
-  { "id": "i14", "name": "新能源", "relatedSubjects": ["ms1", "ms3"], "relatedMajors": ["u5", "u11", "u14"] },
-  { "id": "i15", "name": "环保工程", "relatedSubjects": ["ms1", "ms3", "ms8"], "relatedMajors": ["u6", "u14", "u23"] },
-  { "id": "i16", "name": "农业科技", "relatedSubjects": ["ms3", "ms4", "ms17"], "relatedMajors": ["u6", "u12", "u16", "u43"] },
-  { "id": "i17", "name": "临床医疗", "relatedSubjects": ["ms1", "ms4", "ms15"], "relatedMajors": ["u6", "u15", "u16", "u41"] },
-  { "id": "i18", "name": "公共卫生", "relatedSubjects": ["ms1", "ms4"], "relatedMajors": ["u7", "u15", "u17"] },
-  { "id": "i19", "name": "文化传媒", "relatedSubjects": ["ms5", "ms6", "ms15"], "relatedMajors": ["u18", "u19", "u21", "u22", "u25", "u40"] },
-  { "id": "i20", "name": "教育培训", "relatedSubjects": ["ms5", "ms6", "ms10", "ms16"], "relatedMajors": ["u18", "u19", "u40", "u42", "u47"] },
-  { "id": "i21", "name": "法律服务", "relatedSubjects": ["ms5", "ms7", "ms9"], "relatedMajors": ["u20", "u27", "u28"] },
-  { "id": "i22", "name": "新闻出版", "relatedSubjects": ["ms5", "ms7"], "relatedMajors": ["u20", "u21"] },
-  { "id": "i23", "name": "政府公共管理", "relatedSubjects": ["ms5", "ms7", "ms9"], "relatedMajors": ["u20", "u22", "u27", "u28"] },
-  { "id": "i24", "name": "国际贸易", "relatedSubjects": ["ms6"], "relatedMajors": ["u19", "u23", "u24", "u25"] },
-  { "id": "i25", "name": "跨境电商", "relatedSubjects": ["ms6"], "relatedMajors": ["u19", "u23", "u24"] },
-  { "id": "i26", "name": "旅游酒店", "relatedSubjects": ["ms4", "ms6", "ms13"], "relatedMajors": ["u12", "u15", "u17", "u24", "u48"] },
-  { "id": "i27", "name": "文博考古", "relatedSubjects": ["ms3", "ms4", "ms7", "ms8", "ms9"], "relatedMajors": ["u12", "u20", "u26", "u27", "u28", "u29", "u30"] },
-  { "id": "i28", "name": "广告营销", "relatedSubjects": ["ms5", "ms7"], "relatedMajors": ["u18", "u21", "u22", "u26"] },
-  { "id": "i29", "name": "城市规划", "relatedSubjects": ["ms7", "ms8", "ms1"], "relatedMajors": ["u21", "u22", "u26", "u29", "u30", "u45"] },
-  { "id": "i30", "name": "国土资源", "relatedSubjects": ["ms3", "ms8", "ms1"], "relatedMajors": ["u14", "u23", "u29", "u30", "u45"] },
-  { "id": "i31", "name": "网络安全与数据治理", "relatedSubjects": ["ms1", "ms2", "ms10", "ms14"], "relatedMajors": ["u31", "u32", "u39"] },
-  { "id": "i32", "name": "云计算与大数据平台", "relatedSubjects": ["ms1", "ms10"], "relatedMajors": ["u7", "u31"] },
-  { "id": "i33", "name": "数字创意设计", "relatedSubjects": ["ms11", "ms12"], "relatedMajors": ["u33", "u34"] },
-  { "id": "i34", "name": "游戏与交互媒体", "relatedSubjects": ["ms10", "ms11"], "relatedMajors": ["u1", "u33", "u34"] },
-  { "id": "i35", "name": "演艺与音乐制作", "relatedSubjects": ["ms5", "ms12"], "relatedMajors": ["u18", "u35"] },
-  { "id": "i36", "name": "体育赛事运营", "relatedSubjects": ["ms13"], "relatedMajors": ["u37"] },
-  { "id": "i37", "name": "健康管理与康复服务", "relatedSubjects": ["ms4", "ms13"], "relatedMajors": ["u17", "u36", "u37"] },
-  { "id": "i38", "name": "智能装备制造", "relatedSubjects": ["ms2", "ms14"], "relatedMajors": ["u13", "u38", "u39"] },
-  { "id": "i39", "name": "工业机器人应用", "relatedSubjects": ["ms2", "ms10", "ms14"], "relatedMajors": ["u31", "u38", "u39"] },
-  { "id": "i40", "name": "心理健康服务", "relatedSubjects": ["ms4", "ms15"], "relatedMajors": ["u40", "u41"] },
-  { "id": "i41", "name": "职业教育与技能培训", "relatedSubjects": ["ms10", "ms16"], "relatedMajors": ["u31", "u42"] },
-  { "id": "i42", "name": "食品与餐饮供应链", "relatedSubjects": ["ms3", "ms4", "ms17"], "relatedMajors": ["u16", "u43"] },
-  { "id": "i43", "name": "航空航天产业", "relatedSubjects": ["ms1", "ms2", "ms17"], "relatedMajors": ["u10", "u44"] },
-  { "id": "i44", "name": "建筑工程与基础设施", "relatedSubjects": ["ms1", "ms8"], "relatedMajors": ["u30", "u45"] },
-  { "id": "i45", "name": "会计审计与财税服务", "relatedSubjects": ["ms1", "ms6", "ms16"], "relatedMajors": ["u6", "u46"] },
-  { "id": "i46", "name": "学前教育与托育", "relatedSubjects": ["ms5", "ms11"], "relatedMajors": ["u18", "u47"] },
-  { "id": "i47", "name": "高端酒店与会展服务", "relatedSubjects": ["ms6", "ms13"], "relatedMajors": ["u24", "u48"] },
-  { "id": "i48", "name": "现代物流与供应链", "relatedSubjects": ["ms1", "ms6"], "relatedMajors": ["u23", "u46"] }
+  {
+    "id": "i1",
+    "name": "互联网科技",
+    "description": "涵盖互联网产品、技术开发、平台运营等领域",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedMajors": ["u1", "u2", "u3", "u4", "u5", "u21", "u25"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "互联网行业持续创新，人才需求旺盛"
+    },
+    "skills": {
+      "core": ["编程开发", "产品设计", "数据分析", "云计算", "网络安全"],
+      "soft": ["快速学习", "创新思维", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["计算机基础", "编程语言", "数据结构", "系统设计"],
+      "books": ["《代码大全》", "《人月神话》", "《设计模式》"],
+      "resources": ["GitHub", "LeetCode", "技术博客"],
+      "projects": ["个人网站", "APP开发", "开源贡献"],
+      "certifications": ["AWS认证", "Google云认证", "软考"]
+    }
+  },
+  {
+    "id": "i2",
+    "name": "电子通信",
+    "description": "涉及电子设备、通信技术、5G/6G等领域",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedMajors": ["u1", "u2", "u9"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "5G建设和物联网发展带动行业增长"
+    },
+    "skills": {
+      "core": ["电路设计", "嵌入式开发", "通信协议", "信号处理"],
+      "soft": ["细致严谨", "动手能力", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["电路分析", "通信原理", "单片机", "FPGA"],
+      "books": ["《通信原理》", "《嵌入式系统设计》", "《信号与系统》"],
+      "resources": ["电子发烧友", "EDA社区", "TI官方文档"],
+      "projects": ["智能硬件", "物联网设备", "通信模块"],
+      "certifications": ["华为HCIA", "电子工程师", "嵌入式认证"]
+    }
+  },
+  {
+    "id": "i3",
+    "name": "金融科技",
+    "description": "金融与科技融合，涵盖支付、风控、量化交易等",
+    "relatedSubjects": ["ms1", "ms6"],
+    "relatedMajors": ["u5", "u6", "u15"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "18K-30K", "mid": "35K-60K", "senior": "80K+"},
+        "secondTier": {"entry": "12K-22K", "mid": "26K-45K", "senior": "55K+"},
+        "thirdTier": {"entry": "7K-14K", "mid": "18K-30K", "senior": "40K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "金融数字化转型加速，人才需求激增"
+    },
+    "skills": {
+      "core": ["金融分析", "量化建模", "编程", "风险评估", "数据挖掘"],
+      "soft": ["严谨细致", "抗压能力", "市场敏感度"]
+    },
+    "learningPath": {
+      "courses": ["金融数学", "量化投资", "风险管理", "金融工程"],
+      "books": ["《期权、期货及其他衍生品》", "《量化投资策略》", "《金融工程原理》"],
+      "resources": ["QuantConnect", "TradingView", "金融数据平台"],
+      "projects": ["量化策略", "风控模型", "金融数据分析"],
+      "certifications": ["CFA", "FRM", "CQF"]
+    }
+  },
+  {
+    "id": "i4",
+    "name": "医疗健康",
+    "description": "涵盖医疗服务、健康管理、医疗设备等领域",
+    "relatedSubjects": ["ms1", "ms2", "ms4"],
+    "relatedMajors": ["u7", "u8", "u19", "u20"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "45K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "老龄化加剧，健康意识提升带动行业发展"
+    },
+    "skills": {
+      "core": ["医学知识", "数据分析", "医疗技术", "健康管理"],
+      "soft": ["责任心", "同理心", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["医学基础", "健康管理", "数据分析", "医疗信息化"],
+      "books": ["《临床医学导论》", "《健康管理学》", "《医学数据分析》"],
+      "resources": ["医学论坛", "医疗资讯平台", "在线医学教育"],
+      "projects": ["健康监测系统", "医疗数据分析", "健康科普"],
+      "certifications": ["执业医师", "健康管理师", "护士资格证"]
+    }
+  },
+  {
+    "id": "i5",
+    "name": "人工智能",
+    "description": "涵盖机器学习、深度学习、自然语言处理等领域",
+    "relatedSubjects": ["ms1", "ms2"],
+    "relatedMajors": ["u1", "u4", "u5"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "15K-28K", "mid": "35K-60K", "senior": "70K+"},
+        "secondTier": {"entry": "10K-20K", "mid": "25K-45K", "senior": "55K+"},
+        "thirdTier": {"entry": "6K-12K", "mid": "16K-28K", "senior": "35K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "爆发式增长",
+      "description": "AI技术广泛应用，人才缺口巨大"
+    },
+    "skills": {
+      "core": ["Python", "机器学习", "深度学习", "TensorFlow/PyTorch", "NLP"],
+      "soft": ["数学思维", "创新能力", "跨学科协作"]
+    },
+    "learningPath": {
+      "courses": ["机器学习", "深度学习", "计算机视觉", "NLP"],
+      "books": ["《机器学习》周志华", "《深度学习》Goodfellow", "《统计学习方法》"],
+      "resources": ["Kaggle", "GitHub", "Hugging Face"],
+      "projects": ["图像识别", "聊天机器人", "推荐系统"],
+      "certifications": ["Google ML认证", "AWS ML认证", "TensorFlow认证"]
+    }
+  },
+  {
+    "id": "i6",
+    "name": "软件开发",
+    "description": "专注于软件系统设计、开发与维护",
+    "relatedSubjects": ["ms1", "ms10"],
+    "relatedMajors": ["u1", "u3"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "11K-20K", "mid": "26K-45K", "senior": "55K+"},
+        "secondTier": {"entry": "8K-15K", "mid": "19K-32K", "senior": "40K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "13K-22K", "senior": "28K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "软件行业持续扩张，全栈开发人才需求旺盛"
+    },
+    "skills": {
+      "core": ["Java", "Python", "前端开发", "数据库", "架构设计"],
+      "soft": ["团队协作", "问题解决", "文档编写"]
+    },
+    "learningPath": {
+      "courses": ["编程语言", "数据结构", "系统设计", "DevOps"],
+      "books": ["《代码整洁之道》", "《敏捷软件开发》", "《测试驱动开发》"],
+      "resources": ["Stack Overflow", "GitHub", "技术社区"],
+      "projects": ["企业系统", "移动App", "微服务架构"],
+      "certifications": ["PMP", "Scrum Master", "ISTQB"]
+    }
+  },
+  {
+    "id": "i7",
+    "name": "半导体芯片",
+    "description": "涵盖芯片设计、制造、封装测试等领域",
+    "relatedSubjects": ["ms1", "ms2", "ms3"],
+    "relatedMajors": ["u2", "u12", "u38"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "30K-50K", "senior": "65K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "22K-38K", "senior": "48K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-24K", "senior": "32K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "国产替代加速，芯片人才需求激增"
+    },
+    "skills": {
+      "core": ["芯片设计", "Verilog/VHDL", "半导体工艺", "EDA工具"],
+      "soft": ["细致严谨", "耐心专注", "创新能力"]
+    },
+    "learningPath": {
+      "courses": ["半导体物理", "芯片设计", "数字电路", "EDA技术"],
+      "books": ["《芯片设计基础》", "《Verilog HDL设计》", "《半导体制造技术》"],
+      "resources": ["EDA社区", "芯片论坛", "半导体行业报告"],
+      "projects": ["FPGA设计", "ASIC设计", "芯片验证"],
+      "certifications": ["芯片设计认证", "EDA工具认证"]
+    }
+  },
+  {
+    "id": "i8",
+    "name": "物联网",
+    "description": "连接物理设备与互联网的智能系统",
+    "relatedSubjects": ["ms1", "ms2"],
+    "relatedMajors": ["u2", "u7"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "快速增长",
+      "description": "万物互联时代，物联网应用场景广泛"
+    },
+    "skills": {
+      "core": ["嵌入式开发", "传感器技术", "通信协议", "云平台"],
+      "soft": ["系统思维", "创新应用", "跨领域协作"]
+    },
+    "learningPath": {
+      "courses": ["物联网导论", "嵌入式系统", "传感器网络", "云平台开发"],
+      "books": ["《物联网技术》", "《嵌入式系统设计》", "《传感器网络》"],
+      "resources": ["物联网论坛", "开源硬件社区", "云平台文档"],
+      "projects": ["智能家居", "智能穿戴", "工业物联网"],
+      "certifications": ["物联网工程师", "嵌入式认证", "云平台认证"]
+    }
+  },
+  {
+    "id": "i9",
+    "name": "科学研究",
+    "description": "基础科学与应用科学研究",
+    "relatedSubjects": ["ms1", "ms2", "ms3", "ms4"],
+    "relatedMajors": ["u8", "u44"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "45K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "5K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "稳定",
+      "description": "科研机构和企业研发部门持续需求"
+    },
+    "skills": {
+      "core": ["实验设计", "数据分析", "论文写作", "科研方法"],
+      "soft": ["好奇心", "耐心", "严谨治学"]
+    },
+    "learningPath": {
+      "courses": ["科研方法论", "实验设计", "数据分析", "论文写作"],
+      "books": ["《科研方法导论》", "《实验设计与分析》", "《论文写作指南》"],
+      "resources": ["学术期刊", "科研平台", "学术会议"],
+      "projects": ["课题研究", "论文发表", "实验项目"],
+      "certifications": ["科研助理", "学术认证"]
+    }
+  },
+  {
+    "id": "i10",
+    "name": "高等教育",
+    "description": "高校教学与科研工作",
+    "relatedSubjects": ["ms1", "ms2", "ms5", "ms6"],
+    "relatedMajors": ["u8", "u42"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "15K-25K", "mid": "28K-45K", "senior": "55K+"},
+        "secondTier": {"entry": "10K-18K", "mid": "20K-32K", "senior": "40K+"},
+        "thirdTier": {"entry": "6K-12K", "mid": "14K-22K", "senior": "28K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "高等教育稳步发展，博士学历需求为主"
+    },
+    "skills": {
+      "core": ["专业知识", "教学能力", "科研能力", "学术交流"],
+      "soft": ["耐心", "表达能力", "学术素养"]
+    },
+    "learningPath": {
+      "courses": ["教育学", "教学法", "学术写作", "课程设计"],
+      "books": ["《教育学原理》", "《教学方法》", "《学术写作》"],
+      "resources": ["教育研究", "学术期刊", "教学平台"],
+      "projects": ["课程设计", "教学实践", "学术研究"],
+      "certifications": ["教师资格证", "高校教师资格"]
+    }
+  },
+  {
+    "id": "i11",
+    "name": "医疗器械",
+    "description": "医疗设备研发、生产与销售",
+    "relatedSubjects": ["ms1", "ms2", "ms4"],
+    "relatedMajors": ["u7", "u9", "u10"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "医疗设备国产替代加速，需求增长"
+    },
+    "skills": {
+      "core": ["医疗器械设计", "生物医学工程", "质量管理", "注册法规"],
+      "soft": ["严谨细致", "合规意识", "创新设计"]
+    },
+    "learningPath": {
+      "courses": ["医疗器械设计", "生物医学工程", "质量管理", "法规注册"],
+      "books": ["《医疗器械设计》", "《生物医学工程基础》", "《医疗器械法规》"],
+      "resources": ["医疗器械论坛", "监管机构", "行业报告"],
+      "projects": ["医疗器械设计", "产品注册", "质量体系"],
+      "certifications": ["医疗器械工程师", "质量工程师"]
+    }
+  },
+  {
+    "id": "i12",
+    "name": "生物制药",
+    "description": "药物研发、生产与质量控制",
+    "relatedSubjects": ["ms3", "ms4"],
+    "relatedMajors": ["u4", "u9", "u43"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-20K", "mid": "28K-45K", "senior": "55K+"},
+        "secondTier": {"entry": "8K-15K", "mid": "20K-34K", "senior": "42K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "28K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "创新药研发投入增加，人才需求旺盛"
+    },
+    "skills": {
+      "core": ["药物化学", "分子生物学", "细胞培养", "药物分析"],
+      "soft": ["严谨科学", "耐心细致", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["药物化学", "药剂学", "药理学", "药物分析"],
+      "books": ["《药物化学》", "《药剂学》", "《药理学》"],
+      "resources": ["医药论坛", "药智网", "行业报告"],
+      "projects": ["药物合成", "制剂研发", "质量控制"],
+      "certifications": ["执业药师", "药物分析工程师", "GMP认证"]
+    }
+  },
+  {
+    "id": "i13",
+    "name": "化工新材料",
+    "description": "化工产品与新材料研发生产",
+    "relatedSubjects": ["ms3", "ms4"],
+    "relatedMajors": ["u12", "u16"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "新材料研发推动行业发展"
+    },
+    "skills": {
+      "core": ["化学合成", "材料表征", "化工工艺", "质量控制"],
+      "soft": ["安全意识", "严谨细致", "创新研发"]
+    },
+    "learningPath": {
+      "courses": ["化学工程", "材料科学", "化工工艺", "安全工程"],
+      "books": ["《化学工程原理》", "《材料科学基础》", "《化工工艺设计》"],
+      "resources": ["化工论坛", "材料社区", "行业期刊"],
+      "projects": ["材料合成", "工艺优化", "质量分析"],
+      "certifications": ["化工工程师", "安全工程师"]
+    }
+  },
+  {
+    "id": "i14",
+    "name": "新能源",
+    "description": "太阳能、风能、储能等新能源领域",
+    "relatedSubjects": ["ms1", "ms3"],
+    "relatedMajors": ["u5", "u11", "u14"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "碳中和目标推动新能源行业快速发展"
+    },
+    "skills": {
+      "core": ["新能源技术", "电化学", "光伏技术", "储能系统"],
+      "soft": ["环保意识", "创新思维", "系统设计"]
+    },
+    "learningPath": {
+      "courses": ["新能源技术", "电化学", "光伏原理", "储能技术"],
+      "books": ["《新能源技术》", "《电化学原理》", "《太阳能利用》"],
+      "resources": ["新能源论坛", "行业报告", "研究机构"],
+      "projects": ["光伏系统设计", "储能方案", "新能源项目"],
+      "certifications": ["新能源工程师", "光伏认证", "储能工程师"]
+    }
+  },
+  {
+    "id": "i15",
+    "name": "环保工程",
+    "description": "环境保护与污染治理",
+    "relatedSubjects": ["ms1", "ms3", "ms8"],
+    "relatedMajors": ["u6", "u14"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "环保政策收紧，绿色发展需求增加"
+    },
+    "skills": {
+      "core": ["环境监测", "污染治理", "环境评价", "环保设备"],
+      "soft": ["环保意识", "数据分析", "政策理解"]
+    },
+    "learningPath": {
+      "courses": ["环境工程", "环境监测", "污染治理", "环境评价"],
+      "books": ["《环境工程导论》", "《水污染控制》", "《大气污染控制》"],
+      "resources": ["环保论坛", "监管机构", "行业报告"],
+      "projects": ["环评报告", "污染治理方案", "环保项目"],
+      "certifications": ["环保工程师", "环评工程师"]
+    }
+  },
+  {
+    "id": "i16",
+    "name": "农业科技",
+    "description": "现代农业技术与农业信息化",
+    "relatedSubjects": ["ms3", "ms4"],
+    "relatedMajors": ["u6", "u12", "u43"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "智慧农业发展，科技赋能农业"
+    },
+    "skills": {
+      "core": ["农业技术", "生物技术", "农业信息化", "供应链管理"],
+      "soft": ["创新应用", "耐心坚持", "服务意识"]
+    },
+    "learningPath": {
+      "courses": ["农业技术", "生物技术", "农业信息化", "供应链"],
+      "books": ["《现代农业技术》", "《农业生物技术》", "《智慧农业》"],
+      "resources": ["农业科技论坛", "行业报告", "研究机构"],
+      "projects": ["智慧农业项目", "农业信息化", "农产品溯源"],
+      "certifications": ["农业技术员", "农业工程师"]
+    }
+  },
+  {
+    "id": "i17",
+    "name": "临床医疗",
+    "description": "医院临床诊疗服务",
+    "relatedSubjects": ["ms2", "ms3", "ms4"],
+    "relatedMajors": ["u8", "u16", "u41"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-20K", "mid": "28K-45K", "senior": "55K+"},
+        "secondTier": {"entry": "8K-15K", "mid": "20K-34K", "senior": "42K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "28K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "稳定",
+      "description": "医疗需求持续，优质医疗资源需求大"
+    },
+    "skills": {
+      "core": ["临床技能", "诊断能力", "治疗方案", "医患沟通"],
+      "soft": ["责任心", "同理心", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["临床医学", "诊断学", "内科学", "外科学"],
+      "books": ["《内科学》", "《外科学》", "《诊断学》"],
+      "resources": ["临床指南", "医学论坛", "继续教育平台"],
+      "projects": ["临床实习", "病例分析", "科研项目"],
+      "certifications": ["执业医师", "住院医师规范化培训"]
+    }
+  },
+  {
+    "id": "i18",
+    "name": "公共卫生",
+    "description": "公共卫生管理与疾病预防",
+    "relatedSubjects": ["ms1", "ms4"],
+    "relatedMajors": ["u7", "u17"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "公共卫生意识提升，需求增加"
+    },
+    "skills": {
+      "core": ["流行病学", "卫生统计", "健康管理", "应急响应"],
+      "soft": ["公共意识", "数据分析", "沟通协调"]
+    },
+    "learningPath": {
+      "courses": ["流行病学", "卫生统计学", "健康管理", "应急管理"],
+      "books": ["《流行病学》", "《卫生统计学》", "《健康管理学》"],
+      "resources": ["公共卫生论坛", "疾控中心", "行业报告"],
+      "projects": ["流行病学调查", "健康干预项目", "应急演练"],
+      "certifications": ["公共卫生执业医师", "健康管理师"]
+    }
+  },
+  {
+    "id": "i19",
+    "name": "文化传媒",
+    "description": "文化创意与媒体传播",
+    "relatedSubjects": ["ms5", "ms6", "ms11"],
+    "relatedMajors": ["u17", "u18", "u21"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "新媒体发展，内容创作需求持续"
+    },
+    "skills": {
+      "core": ["内容创作", "新媒体运营", "视频制作", "创意策划"],
+      "soft": ["创意能力", "文字功底", "社会洞察力"]
+    },
+    "learningPath": {
+      "courses": ["新闻学", "传播学", "新媒体", "创意写作"],
+      "books": ["《新闻学概论》", "《传播学教程》", "《创意写作》"],
+      "resources": ["媒体平台", "创作社区", "行业报告"],
+      "projects": ["内容创作", "新媒体运营", "视频制作"],
+      "certifications": ["新闻记者证", "编辑资格证"]
+    }
+  },
+  {
+    "id": "i20",
+    "name": "教育培训",
+    "description": "K12教育、职业培训等教育服务",
+    "relatedSubjects": ["ms5", "ms6", "ms10"],
+    "relatedMajors": ["u18", "u19", "u42"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "20K-35K", "senior": "45K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "14K-25K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-17K", "senior": "22K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "职业教育和素质教育需求增长"
+    },
+    "skills": {
+      "core": ["教学能力", "课程设计", "学习方法", "学生管理"],
+      "soft": ["耐心", "沟通能力", "爱心"]
+    },
+    "learningPath": {
+      "courses": ["教育学", "教学法", "课程设计", "教育心理学"],
+      "books": ["《教育学》", "《教学方法》", "《教育心理学》"],
+      "resources": ["教育平台", "教师社区", "教学资源"],
+      "projects": ["课程设计", "教学实践", "学习规划"],
+      "certifications": ["教师资格证", "普通话等级"]
+    }
+  },
+  {
+    "id": "i21",
+    "name": "法律服务",
+    "description": "律师、法务等法律专业服务",
+    "relatedSubjects": ["ms5", "ms7", "ms9"],
+    "relatedMajors": ["u16", "u27", "u28"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-20K", "mid": "25K-45K", "senior": "60K+"},
+        "secondTier": {"entry": "7K-14K", "mid": "18K-32K", "senior": "42K+"},
+        "thirdTier": {"entry": "5K-9K", "mid": "12K-22K", "senior": "28K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "法律服务业稳定发展，专业化需求增加"
+    },
+    "skills": {
+      "core": ["法律知识", "法律文书", "诉讼技巧", "谈判能力"],
+      "soft": ["逻辑思维", "口头表达", "诚信正直"]
+    },
+    "learningPath": {
+      "courses": ["民法", "刑法", "诉讼法", "法律实务"],
+      "books": ["《民法总则》", "《刑法学》", "《民事诉讼法》"],
+      "resources": ["法律数据库", "律所平台", "司法考试"],
+      "projects": ["法律意见书", "模拟法庭", "法律调研"],
+      "certifications": ["法律职业资格证", "律师执业证"]
+    }
+  },
+  {
+    "id": "i22",
+    "name": "新闻出版",
+    "description": "新闻媒体与出版行业",
+    "relatedSubjects": ["ms5", "ms7"],
+    "relatedMajors": ["u17", "u20"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "传统媒体转型，新媒体融合发展"
+    },
+    "skills": {
+      "core": ["新闻采写", "编辑出版", "内容策划", "媒体运营"],
+      "soft": ["文字功底", "新闻敏感", "团队协作"]
+    },
+    "learningPath": {
+      "courses": ["新闻学", "编辑学", "出版学", "新媒体"],
+      "books": ["《新闻学概论》", "《编辑学》", "《出版实务》"],
+      "resources": ["媒体平台", "出版行业", "新闻网站"],
+      "projects": ["新闻报道", "编辑策划", "出版项目"],
+      "certifications": ["新闻记者证", "出版专业资格"]
+    }
+  },
+  {
+    "id": "i23",
+    "name": "政府公共管理",
+    "description": "政府机构与公共部门管理",
+    "relatedSubjects": ["ms5", "ms7", "ms9"],
+    "relatedMajors": ["u20", "u22", "u28"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "14K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-17K", "senior": "22K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "公务员体系稳定，公共服务需求持续"
+    },
+    "skills": {
+      "core": ["公共管理", "政策分析", "行政管理", "沟通协调"],
+      "soft": ["责任感", "服务意识", "公正廉洁"]
+    },
+    "learningPath": {
+      "courses": ["公共管理", "行政管理", "政策分析", "公共经济学"],
+      "books": ["《公共管理学》", "《行政管理学》", "《政策分析》"],
+      "resources": ["政府官网", "公共政策平台", "公务员考试"],
+      "projects": ["政策研究", "行政管理", "公共服务项目"],
+      "certifications": ["公务员考试", "事业单位考试"]
+    }
+  },
+  {
+    "id": "i24",
+    "name": "国际贸易",
+    "description": "进出口贸易与国际商务",
+    "relatedSubjects": ["ms6"],
+    "relatedMajors": ["u23"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "全球化深入，跨境贸易持续发展"
+    },
+    "skills": {
+      "core": ["国际贸易实务", "商务英语", "报关报检", "国际结算"],
+      "soft": ["跨文化沟通", "谈判能力", "市场敏感度"]
+    },
+    "learningPath": {
+      "courses": ["国际贸易", "国际贸易实务", "国际结算", "商务英语"],
+      "books": ["《国际贸易》", "《国际贸易实务》", "《国际结算》"],
+      "resources": ["海关总署", "跨境电商平台", "贸易协会"],
+      "projects": ["外贸业务", "跨境电商", "国际市场分析"],
+      "certifications": ["报关员", "报检员", "国际贸易单证员"]
+    }
+  },
+  {
+    "id": "i25",
+    "name": "跨境电商",
+    "description": "跨境电子商务与国际零售",
+    "relatedSubjects": ["ms6"],
+    "relatedMajors": ["u14", "u23"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "46K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "快速增长",
+      "description": "跨境电商快速发展，出海需求增加"
+    },
+    "skills": {
+      "core": ["电商运营", "跨境物流", "海外营销", "多语言沟通"],
+      "soft": ["市场洞察", "数据分析", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["跨境电商", "电商运营", "海外营销", "物流管理"],
+      "books": ["《跨境电商实务》", "《电商运营》", "《海外营销》"],
+      "resources": ["跨境电商平台", "行业报告", "运营社区"],
+      "projects": ["跨境店铺运营", "选品分析", "海外推广"],
+      "certifications": ["跨境电商运营师", "电商认证"]
+    }
+  },
+  {
+    "id": "i26",
+    "name": "旅游酒店",
+    "description": "旅游服务与酒店管理",
+    "relatedSubjects": ["ms4", "ms6", "ms13"],
+    "relatedMajors": ["u15", "u17", "u48"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "旅游业复苏，高端酒店需求增加"
+    },
+    "skills": {
+      "core": ["酒店管理", "客户服务", "运营管理", "市场营销"],
+      "soft": ["服务意识", "沟通能力", "应变能力"]
+    },
+    "learningPath": {
+      "courses": ["酒店管理", "旅游管理", "客户服务", "运营管理"],
+      "books": ["《酒店管理》", "《旅游学概论》", "《服务管理》"],
+      "resources": ["酒店协会", "旅游平台", "行业报告"],
+      "projects": ["酒店运营", "旅游产品设计", "客户服务"],
+      "certifications": ["酒店管理师", "导游证"]
+    }
+  },
+  {
+    "id": "i27",
+    "name": "文博考古",
+    "description": "文物保护与考古研究",
+    "relatedSubjects": ["ms3", "ms4", "ms7"],
+    "relatedMajors": ["u26", "u27", "u28"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "文化遗产保护持续，博物馆事业发展"
+    },
+    "skills": {
+      "core": ["考古学", "文物保护", "历史研究", "博物馆学"],
+      "soft": ["耐心细致", "学术严谨", "文化传承"]
+    },
+    "learningPath": {
+      "courses": ["考古学", "文物保护", "博物馆学", "历史学"],
+      "books": ["《考古学概论》", "《文物保护学》", "《博物馆学》"],
+      "resources": ["考古机构", "博物馆", "学术期刊"],
+      "projects": ["考古发掘", "文物修复", "博物馆展览"],
+      "certifications": ["考古专业资格", "文物修复师"]
+    }
+  },
+  {
+    "id": "i28",
+    "name": "广告营销",
+    "description": "广告策划与营销推广",
+    "relatedSubjects": ["ms5", "ms7"],
+    "relatedMajors": ["u14", "u21"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "20K-35K", "senior": "45K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "14K-25K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-17K", "senior": "22K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "增长",
+      "description": "数字广告快速发展，精准营销需求增加"
+    },
+    "skills": {
+      "core": ["广告策划", "创意设计", "数据分析", "媒介投放"],
+      "soft": ["创意能力", "沟通能力", "市场敏感度"]
+    },
+    "learningPath": {
+      "courses": ["广告学", "市场营销", "创意策划", "数据分析"],
+      "books": ["《广告学》", "《营销管理》", "《创意广告》"],
+      "resources": ["广告平台", "营销社区", "行业报告"],
+      "projects": ["广告策划", "创意设计", "投放优化"],
+      "certifications": ["广告师", "营销认证"]
+    }
+  },
+  {
+    "id": "i29",
+    "name": "城市规划",
+    "description": "城市发展规划与设计",
+    "relatedSubjects": ["ms7", "ms8"],
+    "relatedMajors": ["u10", "u29", "u30"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "46K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "城市更新持续，规划需求稳定"
+    },
+    "skills": {
+      "core": ["城市规划", "空间设计", "GIS技术", "政策分析"],
+      "soft": ["空间思维", "审美能力", "公共意识"]
+    },
+    "learningPath": {
+      "courses": ["城市规划", "城市设计", "GIS技术", "规划法规"],
+      "books": ["《城市规划原理》", "《城市设计》", "《GIS应用》"],
+      "resources": ["规划机构", "GIS社区", "行业报告"],
+      "projects": ["城市规划设计", "GIS分析", "规划方案"],
+      "certifications": ["注册城市规划师", "GIS认证"]
+    }
+  },
+  {
+    "id": "i30",
+    "name": "国土资源",
+    "description": "土地资源管理与开发",
+    "relatedSubjects": ["ms3", "ms8"],
+    "relatedMajors": ["u14", "u29", "u30"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "土地管理和开发需求持续"
+    },
+    "skills": {
+      "core": ["土地管理", "GIS技术", "测绘技术", "法规政策"],
+      "soft": ["细致严谨", "政策理解", "沟通协调"]
+    },
+    "learningPath": {
+      "courses": ["土地管理", "GIS技术", "测绘学", "土地法规"],
+      "books": ["《土地管理学》", "《GIS原理》", "《测绘学》"],
+      "resources": ["自然资源部", "GIS社区", "行业报告"],
+      "projects": ["土地规划", "GIS分析", "测绘项目"],
+      "certifications": ["土地估价师", "测绘工程师"]
+    }
+  },
+  {
+    "id": "i31",
+    "name": "网络安全",
+    "description": "网络安全与数据保护",
+    "relatedSubjects": ["ms1", "ms2", "ms10"],
+    "relatedMajors": ["u31", "u32"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "网络安全需求激增，人才缺口巨大"
+    },
+    "skills": {
+      "core": ["网络安全", "渗透测试", "安全运维", "加密技术"],
+      "soft": ["细致严谨", "持续学习", "问题解决"]
+    },
+    "learningPath": {
+      "courses": ["网络安全", "渗透测试", "安全运维", "加密技术"],
+      "books": ["《网络安全基础》", "《渗透测试》", "《加密与解密》"],
+      "resources": ["安全社区", "CTF平台", "安全厂商"],
+      "projects": ["安全审计", "渗透测试", "安全加固"],
+      "certifications": ["CEH", "CISSP", "CISP"]
+    }
+  },
+  {
+    "id": "i32",
+    "name": "云计算与大数据",
+    "description": "云计算平台与大数据处理",
+    "relatedSubjects": ["ms1", "ms10"],
+    "relatedMajors": ["u5", "u7", "u31"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "数字化转型加速，云服务需求旺盛"
+    },
+    "skills": {
+      "core": ["云计算", "大数据处理", "分布式系统", "数据仓库"],
+      "soft": ["系统思维", "问题解决", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["云计算", "大数据", "分布式系统", "数据仓库"],
+      "books": ["《云计算概念与技术》", "《大数据处理》", "《分布式系统》"],
+      "resources": ["云厂商文档", "开源社区", "技术博客"],
+      "projects": ["云平台部署", "大数据分析", "数据仓库"],
+      "certifications": ["AWS认证", "Azure认证", "阿里云认证"]
+    }
+  },
+  {
+    "id": "i33",
+    "name": "数字创意设计",
+    "description": "数字媒体与创意设计",
+    "relatedSubjects": ["ms11", "ms12"],
+    "relatedMajors": ["u21", "u33", "u34"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-17K", "mid": "22K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "16K-28K", "senior": "36K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "11K-19K", "senior": "26K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "数字内容需求激增，设计人才需求旺盛"
+    },
+    "skills": {
+      "core": ["UI设计", "UX设计", "动效设计", "设计软件"],
+      "soft": ["审美能力", "创意能力", "用户思维"]
+    },
+    "learningPath": {
+      "courses": ["UI设计", "UX设计", "动效设计", "设计理论"],
+      "books": ["《设计心理学》", "《交互设计精髓》", "《配色设计》"],
+      "resources": ["设计社区", "Dribbble", "站酷"],
+      "projects": ["UI设计", "交互原型", "动效设计"],
+      "certifications": ["Adobe认证", "UI设计认证"]
+    }
+  },
+  {
+    "id": "i34",
+    "name": "游戏与交互媒体",
+    "description": "游戏开发与互动娱乐",
+    "relatedSubjects": ["ms10", "ms11"],
+    "relatedMajors": ["u1", "u21", "u33"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "游戏产业快速发展，人才需求旺盛"
+    },
+    "skills": {
+      "core": ["游戏开发", "Unity/Unreal", "3D建模", "游戏设计"],
+      "soft": ["创意能力", "团队协作", "游戏热情"]
+    },
+    "learningPath": {
+      "courses": ["游戏开发", "Unity引擎", "3D建模", "游戏设计"],
+      "books": ["《游戏设计艺术》", "《Unity开发》", "《3D建模》"],
+      "resources": ["游戏开发社区", "Unity商店", "GDC"],
+      "projects": ["游戏开发", "关卡设计", "3D资产"],
+      "certifications": ["Unity认证", "Unreal认证"]
+    }
+  },
+  {
+    "id": "i35",
+    "name": "演艺与音乐制作",
+    "description": "音乐表演与音乐制作",
+    "relatedSubjects": ["ms5", "ms12"],
+    "relatedMajors": ["u18", "u35"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "18K-32K", "senior": "42K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "音乐产业多元化发展"
+    },
+    "skills": {
+      "core": ["音乐表演", "音乐制作", "编曲", "录音技术"],
+      "soft": ["艺术素养", "创造力", "舞台表现力"]
+    },
+    "learningPath": {
+      "courses": ["音乐理论", "音乐制作", "编曲", "录音技术"],
+      "books": ["《音乐理论基础》", "《音乐制作指南》", "《录音技术》"],
+      "resources": ["音乐平台", "制作社区", "演出机构"],
+      "projects": ["音乐制作", "编曲", "录音工程"],
+      "certifications": ["音乐考级", "录音师认证"]
+    }
+  },
+  {
+    "id": "i36",
+    "name": "体育赛事运营",
+    "description": "体育赛事策划与运营",
+    "relatedSubjects": ["ms13"],
+    "relatedMajors": ["u37"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "18K-32K", "senior": "42K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "体育产业发展，赛事需求增加"
+    },
+    "skills": {
+      "core": ["赛事策划", "运营管理", "市场营销", "体育知识"],
+      "soft": ["组织能力", "沟通能力", "体育热情"]
+    },
+    "learningPath": {
+      "courses": ["体育管理", "赛事运营", "市场营销", "体育产业"],
+      "books": ["《体育赛事运营》", "《体育管理》", "《体育市场营销》"],
+      "resources": ["体育协会", "赛事平台", "行业报告"],
+      "projects": ["赛事策划", "活动运营", "体育营销"],
+      "certifications": ["体育经纪人", "赛事运营师"]
+    }
+  },
+  {
+    "id": "i37",
+    "name": "健康管理与康复",
+    "description": "健康管理与康复服务",
+    "relatedSubjects": ["ms4", "ms13"],
+    "relatedMajors": ["u17", "u36", "u37"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "健康意识提升，康复需求增加"
+    },
+    "skills": {
+      "core": ["健康评估", "康复治疗", "运动康复", "健康管理"],
+      "soft": ["同理心", "耐心", "服务意识"]
+    },
+    "learningPath": {
+      "courses": ["康复医学", "运动康复", "健康管理", "理疗技术"],
+      "books": ["《康复医学》", "《运动康复》", "《健康管理学》"],
+      "resources": ["康复机构", "健身平台", "行业报告"],
+      "projects": ["康复计划", "健康评估", "运动指导"],
+      "certifications": ["康复治疗师", "健康管理师"]
+    }
+  },
+  {
+    "id": "i38",
+    "name": "智能装备制造",
+    "description": "智能制造装备与自动化",
+    "relatedSubjects": ["ms2", "ms14"],
+    "relatedMajors": ["u12", "u38"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "24K-40K", "senior": "50K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "18K-30K", "senior": "38K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "12K-20K", "senior": "26K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "制造业升级，智能制造需求旺盛"
+    },
+    "skills": {
+      "core": ["机械设计", "自动化控制", "工业机器人", "PLC编程"],
+      "soft": ["空间思维", "动手能力", "创新设计"]
+    },
+    "learningPath": {
+      "courses": ["机械设计", "自动化控制", "工业机器人", "PLC"],
+      "books": ["《机械设计手册》", "《自动化控制》", "《工业机器人》"],
+      "resources": ["智能制造平台", "工控社区", "行业报告"],
+      "projects": ["自动化设备", "机器人应用", "生产线设计"],
+      "certifications": ["自动化工程师", "机器人认证"]
+    }
+  },
+  {
+    "id": "i39",
+    "name": "工业机器人",
+    "description": "工业机器人研发与应用",
+    "relatedSubjects": ["ms2", "ms10", "ms14"],
+    "relatedMajors": ["u31", "u38", "u39"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "快速增长",
+      "description": "工业自动化加速，机器人需求激增"
+    },
+    "skills": {
+      "core": ["机器人技术", "运动控制", "机器视觉", "编程"],
+      "soft": ["系统思维", "问题解决", "持续学习"]
+    },
+    "learningPath": {
+      "courses": ["机器人技术", "运动控制", "机器视觉", "ROS"],
+      "books": ["《机器人学导论》", "《ROS机器人编程》", "《机器视觉》"],
+      "resources": ["ROS社区", "机器人论坛", "厂商文档"],
+      "projects": ["机器人开发", "运动控制", "视觉识别"],
+      "certifications": ["机器人工程师", "ROS认证"]
+    }
+  },
+  {
+    "id": "i40",
+    "name": "心理健康服务",
+    "description": "心理咨询与心理健康服务",
+    "relatedSubjects": ["ms4", "ms15"],
+    "relatedMajors": ["u20", "u41"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "10K-18K", "mid": "22K-38K", "senior": "46K+"},
+        "secondTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "34K+"},
+        "thirdTier": {"entry": "4K-9K", "mid": "11K-19K", "senior": "24K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "快速增长",
+      "description": "心理健康意识提升，咨询需求激增"
+    },
+    "skills": {
+      "core": ["心理咨询", "心理评估", "心理治疗", "危机干预"],
+      "soft": ["同理心", "倾听能力", "保密意识"]
+    },
+    "learningPath": {
+      "courses": ["心理学", "心理咨询", "心理治疗", "心理评估"],
+      "books": ["《普通心理学》", "《心理咨询与治疗》", "《心理评估》"],
+      "resources": ["心理学会", "咨询平台", "继续教育"],
+      "projects": ["心理咨询", "心理测评", "心理健康科普"],
+      "certifications": ["心理咨询师", "心理治疗师"]
+    }
+  },
+  {
+    "id": "i41",
+    "name": "职业教育",
+    "description": "职业技能培训与发展",
+    "relatedSubjects": ["ms10", "ms16"],
+    "relatedMajors": ["u42"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "职业技能培训需求持续增长"
+    },
+    "skills": {
+      "core": ["职业培训", "课程设计", "技能评估", "就业指导"],
+      "soft": ["耐心", "沟通能力", "行业洞察力"]
+    },
+    "learningPath": {
+      "courses": ["职业教育学", "课程设计", "技能评估", "就业指导"],
+      "books": ["《职业教育学》", "《课程设计》", "《就业指导》"],
+      "resources": ["职业教育平台", "技能培训社区", "行业报告"],
+      "projects": ["课程开发", "技能培训", "就业服务"],
+      "certifications": ["职业指导师", "培训师认证"]
+    }
+  },
+  {
+    "id": "i42",
+    "name": "食品与餐饮",
+    "description": "食品加工、餐饮服务与供应链",
+    "relatedSubjects": ["ms3", "ms4"],
+    "relatedMajors": ["u16", "u43"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-13K", "mid": "16K-28K", "senior": "35K+"},
+        "secondTier": {"entry": "5K-10K", "mid": "12K-20K", "senior": "26K+"},
+        "thirdTier": {"entry": "3K-6K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "餐饮行业稳定，食品安全需求增加"
+    },
+    "skills": {
+      "core": ["食品工艺", "食品安全", "餐饮管理", "供应链"],
+      "soft": ["卫生意识", "服务意识", "创新能力"]
+    },
+    "learningPath": {
+      "courses": ["食品科学", "食品安全", "餐饮管理", "供应链"],
+      "books": ["《食品科学》", "《食品安全》", "《餐饮管理》"],
+      "resources": ["餐饮协会", "食品论坛", "行业报告"],
+      "projects": ["食品研发", "餐厅运营", "供应链管理"],
+      "certifications": ["食品安全师", "餐饮管理师"]
+    }
+  },
+  {
+    "id": "i43",
+    "name": "航空航天",
+    "description": "航空航天研发与制造",
+    "relatedSubjects": ["ms1", "ms2"],
+    "relatedMajors": ["u10", "u44"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "12K-22K", "mid": "28K-50K", "senior": "60K+"},
+        "secondTier": {"entry": "8K-16K", "mid": "20K-35K", "senior": "45K+"},
+        "thirdTier": {"entry": "5K-10K", "mid": "14K-22K", "senior": "30K+"}
+      },
+      "marketDemand": "紧缺",
+      "growthTrend": "增长",
+      "description": "航空航天产业发展，人才需求增加"
+    },
+    "skills": {
+      "core": ["航空工程", "航天技术", "飞行力学", "控制系统"],
+      "soft": ["严谨细致", "系统思维", "安全意识"]
+    },
+    "learningPath": {
+      "courses": ["航空航天工程", "飞行力学", "控制系统", "航天器设计"],
+      "books": ["《航空航天概论》", "《飞行力学》", "《航天器设计》"],
+      "resources": ["航空航天机构", "行业报告", "研究期刊"],
+      "projects": ["飞行器设计", "飞行模拟", "航天项目"],
+      "certifications": ["航空工程师", "飞行工程师"]
+    }
+  },
+  {
+    "id": "i44",
+    "name": "建筑工程",
+    "description": "建筑施工与基础设施建设",
+    "relatedSubjects": ["ms1", "ms8"],
+    "relatedMajors": ["u11", "u30", "u45"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "基础设施建设持续，需求稳定"
+    },
+    "skills": {
+      "core": ["结构设计", "施工技术", "工程管理", "工程造价"],
+      "soft": ["责任心", "团队协作", "现场协调"]
+    },
+    "learningPath": {
+      "courses": ["结构力学", "施工技术", "工程管理", "工程造价"],
+      "books": ["《结构力学》", "《施工技术》", "《工程管理》"],
+      "resources": ["建筑论坛", "工程平台", "行业报告"],
+      "projects": ["结构设计", "施工组织", "工程造价"],
+      "certifications": ["一级建造师", "二级建造师"]
+    }
+  },
+  {
+    "id": "i45",
+    "name": "会计审计",
+    "description": "会计核算与审计服务",
+    "relatedSubjects": ["ms1", "ms6"],
+    "relatedMajors": ["u15", "u46"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "9K-16K", "mid": "20K-36K", "senior": "44K+"},
+        "secondTier": {"entry": "6K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-18K", "senior": "24K+"}
+      },
+      "marketDemand": "平稳",
+      "growthTrend": "平稳",
+      "description": "企业财务需求持续，审计需求稳定"
+    },
+    "skills": {
+      "core": ["会计核算", "审计", "税务", "财务分析"],
+      "soft": ["细致严谨", "诚信意识", "法规遵守"]
+    },
+    "learningPath": {
+      "courses": ["会计学", "审计学", "税法", "财务分析"],
+      "books": ["《会计学》", "《审计学》", "《税法》"],
+      "resources": ["会计视野", "税务总局", "CPA考试"],
+      "projects": ["财务报表", "审计报告", "税务筹划"],
+      "certifications": ["CPA", "ACCA", "CMA"]
+    }
+  },
+  {
+    "id": "i46",
+    "name": "学前教育",
+    "description": "幼儿教育与保育",
+    "relatedSubjects": ["ms5", "ms11"],
+    "relatedMajors": ["u18", "u47"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "7K-12K", "mid": "15K-26K", "senior": "32K+"},
+        "secondTier": {"entry": "5K-9K", "mid": "11K-19K", "senior": "24K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "8K-14K", "senior": "18K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "三孩政策推动，学前教育需求增加"
+    },
+    "skills": {
+      "core": ["幼儿教育", "保育知识", "儿童心理", "活动设计"],
+      "soft": ["爱心", "耐心", "创造力"]
+    },
+    "learningPath": {
+      "courses": ["学前教育学", "儿童心理学", "幼儿保育", "活动设计"],
+      "books": ["《学前教育学》", "《儿童心理学》", "《幼儿保育》"],
+      "resources": ["学前教育平台", "幼儿园", "行业报告"],
+      "projects": ["幼儿园活动", "课程设计", "儿童成长"],
+      "certifications": ["幼儿园教师资格", "保育员"]
+    }
+  },
+  {
+    "id": "i47",
+    "name": "高端酒店与会展",
+    "description": "高端酒店运营与会展服务",
+    "relatedSubjects": ["ms6", "ms13"],
+    "relatedMajors": ["u24", "u48"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-15K", "mid": "20K-35K", "senior": "45K+"},
+        "secondTier": {"entry": "6K-11K", "mid": "14K-25K", "senior": "32K+"},
+        "thirdTier": {"entry": "4K-8K", "mid": "10K-17K", "senior": "22K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "增长",
+      "description": "高端消费复苏，会展需求增加"
+    },
+    "skills": {
+      "core": ["酒店管理", "会展策划", "客户服务", "活动运营"],
+      "soft": ["服务意识", "沟通能力", "组织能力"]
+    },
+    "learningPath": {
+      "courses": ["酒店管理", "会展策划", "客户服务", "活动运营"],
+      "books": ["《酒店管理》", "《会展策划》", "《服务管理》"],
+      "resources": ["酒店协会", "会展平台", "行业报告"],
+      "projects": ["酒店运营", "会展策划", "活动执行"],
+      "certifications": ["酒店管理师", "会展策划师"]
+    }
+  },
+  {
+    "id": "i48",
+    "name": "现代物流",
+    "description": "物流运输与供应链管理",
+    "relatedSubjects": ["ms1", "ms6"],
+    "relatedMajors": ["u24"],
+    "prospect": {
+      "salary": {
+        "firstTier": {"entry": "8K-14K", "mid": "18K-30K", "senior": "38K+"},
+        "secondTier": {"entry": "6K-10K", "mid": "13K-22K", "senior": "28K+"},
+        "thirdTier": {"entry": "4K-7K", "mid": "9K-15K", "senior": "20K+"}
+      },
+      "marketDemand": "增长",
+      "growthTrend": "快速增长",
+      "description": "电商发展带动物流行业快速扩张"
+    },
+    "skills": {
+      "core": ["物流管理", "供应链", "仓储管理", "运输调度"],
+      "soft": ["统筹能力", "数据分析", "抗压能力"]
+    },
+    "learningPath": {
+      "courses": ["物流学", "供应链管理", "仓储管理", "运输管理"],
+      "books": ["《物流管理》", "《供应链管理》", "《仓储管理》"],
+      "resources": ["物流平台", "行业报告", "物流协会"],
+      "projects": ["物流系统", "仓储优化", "配送规划"],
+      "certifications": ["物流师", "供应链管理师"]
+    }
+  }
 ]
